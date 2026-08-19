@@ -471,7 +471,13 @@ while True:
                     print(" -Pierdes el turno\n")
                     jugada += 1 # Para contabilizar la jugada.
                     continue
+                if hpPlayer == 100:
+                    print("¡ATENTO! No puedes curarte, tienes el máximo de HP (100).\n+ Repites el turno.\n")
+                    continue
+                print("\n- Poción consumida.")
                 hpPlayer += 30
+                if hpPlayer > 100: # En caso de que el jugador se cure y exceda 100 de HP se igualará al maximo
+                    hpPlayer = 100
                 potion -= 1
                 jugada += 1 # Para contabilizar la jugada.
             hpPlayer -= damageBaseBoss # Turno del enemigo.
