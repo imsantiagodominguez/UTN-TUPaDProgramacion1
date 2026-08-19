@@ -111,13 +111,13 @@ for intento in range(1, 4):
 
 ##Ejercicio 3 (Alta) — “Agenda de Turnos con Nombres (sin listas)"
 
-lunes1 = "0"
-lunes2 = "0"
-lunes3 = "0"
-lunes4 = "0"
-martes1 = "0"
-martes2 = "0"
-martes3 = "0"
+lunes1 = ""
+lunes2 = ""
+lunes3 = ""
+lunes4 = ""
+martes1 = ""
+martes2 = ""
+martes3 = ""
 
 while True:
     nombreOp = input("Ingrese el nombre del operador (solo letras): ")
@@ -159,28 +159,28 @@ while True:
                 else:
                     break
             if dia == "1" and nombrePaciente != lunes1 and nombrePaciente != lunes2 and nombrePaciente != lunes3 and nombrePaciente != lunes4:
-                if lunes1 == "0":
+                if lunes1 == "":
                     lunes1 = nombrePaciente
                     print(f"1er Turno libre: Turno reservado para {nombrePaciente.title()}.")
-                elif lunes2 == "0":
+                elif lunes2 == "":
                     lunes2 = nombrePaciente
                     print(f"2do Turno libre: Turno reservado para {nombrePaciente.title()}.")
-                elif lunes3 == "0":
+                elif lunes3 == "":
                     lunes3 = nombrePaciente
                     print(f"3er Turno libre: Turno reservado para {nombrePaciente.title()}.")
-                elif lunes4 == "0":
+                elif lunes4 == "":
                     lunes4 = nombrePaciente
                     print(f"4to Turno libre: Turno reservado para {nombrePaciente.title()}.")
                 else:
                     print("Ya no hay turnos disponibles para el día Lunes.")
             elif dia == "2" and nombrePaciente != martes1 and nombrePaciente != martes2 and nombrePaciente != martes3:
-                if martes1 == "0":
+                if martes1 == "":
                     martes1 = nombrePaciente
                     print(f"1er Turno libre: Turno reservado para {nombrePaciente.title()}.")
-                elif martes2 == "0":
+                elif martes2 == "":
                     martes2 = nombrePaciente
                     print(f"2do Turno libre: Turno reservado para {nombrePaciente.title()}.")
-                elif martes3 == "0":
+                elif martes3 == "":
                     martes3 = nombrePaciente
                     print(f"3er Turno libre: Turno reservado para {nombrePaciente.title()}.")
                 else:
@@ -190,7 +190,7 @@ while True:
             break
     elif opcion == 2: # Cancelar turno
         while True:
-            if lunes1 == "0" and lunes2 == "0" and lunes3 == "0" and lunes4 == "0" and martes1 == "0" and martes2 == "0" and martes3 == "0":
+            if lunes1 == "" and lunes2 == "" and lunes3 == "" and lunes4 == "" and martes1 == "" and martes2 == "" and martes3 == "":
                 print("No hay turnos reservados para cancelar.")
                 break
             else:
@@ -200,31 +200,31 @@ while True:
                         print("Error!\nEl nombre del paciente debe contener solo letras.")
                         continue
                     elif nombrePaciente == lunes1:
-                        lunes1 = "0"
+                        lunes1 = ""
                         print(f"1er Turno de Lunes, reservado a {nombrePaciente.title()} ha sidocancelado.")
                         break
                     elif nombrePaciente == lunes2:
-                        lunes2 = "0"
+                        lunes2 = ""
                         print(f"2do Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
                         break
                     elif nombrePaciente == lunes3:
-                        lunes3 = "0"
+                        lunes3 = ""
                         print(f"3er Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
                         break
                     elif nombrePaciente == lunes4:
-                        lunes4 = "0"
+                        lunes4 = ""
                         print(f"4to Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
                         break
                     elif nombrePaciente == martes1:
-                        martes1 = "0"
+                        martes1 = ""
                         print(f"1er Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
                         break
                     elif nombrePaciente == martes2:
-                        martes2 = "0"
+                        martes2 = ""
                         print(f"2do Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
                         break
                     elif nombrePaciente == martes3:
-                        martes3 = "0"
+                        martes3 = ""
                         print(f"3er Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
                         break
     elif opcion == 3: # Ver agenda del día
@@ -236,49 +236,49 @@ while True:
             else:
                 if dia == "1":
                     print("\n--- Agenda del día Lunes ---")
-                    print(f"Turno 1: {lunes1 if lunes1 != '0' else '(libre)'}")
-                    print(f"Turno 2: {lunes2 if lunes2 != '0' else '(libre)'}")
-                    print(f"Turno 3: {lunes3 if lunes3 != '0' else '(libre)'}")
-                    print(f"Turno 4: {lunes4 if lunes4 != '0' else '(libre)'}")
+                    print(f"Turno 1: {lunes1 if lunes1 != '' else '(libre)'}")
+                    print(f"Turno 2: {lunes2 if lunes2 != '' else '(libre)'}")
+                    print(f"Turno 3: {lunes3 if lunes3 != '' else '(libre)'}")
+                    print(f"Turno 4: {lunes4 if lunes4 != '' else '(libre)'}")
                 elif dia == "2":
                     print("\n--- Agenda del día Martes ---")
-                    print(f"Turno 1: {martes1 if martes1 != '0' else '(libre)'}")
-                    print(f"Turno 2: {martes2 if martes2 != '0' else '(libre)'}")
-                    print(f"Turno 3: {martes3 if martes3 != '0' else '(libre)'}")
+                    print(f"Turno 1: {martes1 if martes1 != '' else '(libre)'}")
+                    print(f"Turno 2: {martes2 if martes2 != '' else '(libre)'}")
+                    print(f"Turno 3: {martes3 if martes3 != '' else '(libre)'}")
                 break
         pass
     elif opcion == 4: # Ver resumen general
         print("\n--- Resumen General ---") #Calcular turnos ocupados y disponibles por día
         turnosOcupadosLunes = 0
         turnosDisponiblesLunes = 0
-        if lunes1 != "0": # # Contamos turnos ocupados y disponibles para Lunes, si el turno no está vacío, se suma a los ocupados, de lo contrario a los disponibles.
+        if lunes1 != "": # # Contamos turnos ocupados y disponibles para Lunes, si el turno no está vacío, se suma a los ocupados, de lo contrario a los disponibles.
             turnosOcupadosLunes += 1
         else:
             turnosDisponiblesLunes += 1
-        if lunes2 != "0":
+        if lunes2 != "":
             turnosOcupadosLunes += 1
         else:
             turnosDisponiblesLunes += 1
-        if lunes3 != "0":
+        if lunes3 != "":
             turnosOcupadosLunes += 1
         else:
             turnosDisponiblesLunes += 1
-        if lunes4 != "0":
+        if lunes4 != "":
             turnosOcupadosLunes += 1
         else:
             turnosDisponiblesLunes += 1
         print(f"\nEstado de cupos de turno para Lunes:\n{turnosOcupadosLunes} turnos ocupados\n{turnosDisponiblesLunes} turnos disponibles.")
         turnosOcupadosMartes = 0
         turnosDisponiblesMartes = 0
-        if martes1 != "0": # Contamos turnos ocupados y disponibles para Martes, si el turno no está vacío, se suma a los ocupados, de lo contrario a los disponibles.
+        if martes1 != "": # Contamos turnos ocupados y disponibles para Martes, si el turno no está vacío, se suma a los ocupados, de lo contrario a los disponibles.
             turnosOcupadosMartes += 1
         else:
             turnosDisponiblesMartes += 1
-        if martes2 != "0":
+        if martes2 != "":
             turnosOcupadosMartes += 1
         else:
             turnosDisponiblesMartes += 1
-        if martes3 != "0":
+        if martes3 != "":
             turnosOcupadosMartes += 1
         else:
             turnosDisponiblesMartes += 1
@@ -290,7 +290,7 @@ while True:
         else:
             print("Empate en la cantidad de turnos ocupados entre Lunes y Martes.")
     elif opcion == 5:
-        print("Cerrando sistema. ¡Hasta luego!")
+        print("Cerrando sistema. ¡Hasta luego!\n")
         break
 
 
