@@ -465,13 +465,14 @@ while True:
                     hpBoss -= 5
                     print("Golpe conectado por 5 de daño.")
                 jugada += 1 # Para contabilizar la jugada.
-            if action == 3 and potion > 0: # OPCION: Curar. En caso de tener pociones, el jugador se cura 30HP y se resta 1 poción restante.
+            if action == 3 and potion >= 0: # OPCION: Curar. En caso de tener pociones, el jugador se cura 30HP y se resta 1 poción restante.
+                if potion == 0: # En caso de no tener pociones, se imprime por pantalla al jugador y pierde el turno.
+                    print("¡No quedan pociones!")
+                    print(" -Pierdes el turno\n")
+                    jugada += 1 # Para contabilizar la jugada.
+                    continue
                 hpPlayer += 30
                 potion -= 1
-                jugada += 1 # Para contabilizar la jugada.
-            if potion == 0: # En caso de no tener pociones, se imprime por pantalla al jugador y pierde el turno.
-                print("¡No quedan pociones!")
-                print(" -Pierdes el turno,")
                 jugada += 1 # Para contabilizar la jugada.
             hpPlayer -= damageBaseBoss # Turno del enemigo.
             print("\n- ¡El enemigo te atacó por 12 puntos de daño!\n")
