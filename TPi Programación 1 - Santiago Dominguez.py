@@ -367,7 +367,7 @@ while True:
                 if alarma == False:
                         print("¡CERRADURA ABIERTA! Lograste abrir una cerradura.")
                         cerraduras_abiertas += 1                   
-            if opcion == "2":
+            if opcion == "2": # OPCION: Hackear panel.
                 print("\nHackeando panel...")
                 spam = 0
                 energia -= 10
@@ -386,12 +386,17 @@ while True:
                         cerraduras_abiertas += 1
                         print("Se abre automáticamente la cerradura y se suma al código final.")
                         codigo_parcial = ""
-            if opcion == "3":
-                spam = 0
+            if opcion == "3": # OPCION: Descansar.
                 print("\nDescansando...")
-                if energia + 15 <= 100:
-                    energia += 15
+                if energia == 100: # En caso de que tenga el máximo el agente no podrá descansar porque ya tiene el máximo de energía.
+                    print("No puedes descansar, tienes el máximo de energía. No pierdes tiempo.")
+                    continue
+                spam = 0
+                energia += 15
                 tiempo -= 1
+                if energia > 100: # En caso de que descanse y supere los 100 puntos de energía se iguala la energia al maximo de 100.
+                    energia = 100
+                print("¡Has descansado!")
                 if alarma == True:
                     print("¡CUIDADO!\nLa alarma estaba activada, pierdes 10 puntos de energía.")
                     energia -= 10
