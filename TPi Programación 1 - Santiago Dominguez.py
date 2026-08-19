@@ -139,19 +139,19 @@ while True:
         print("Error: Debe ingresar un número entre 1 y 5.")
         continue
 
-    opcion = int(opcion)
+    opcion = int(opcion) # Se pasa el valor de la opción ingresada a una variable de tipo int para poder evaluarlo a continuación
 
     if opcion == 1: # Reservar turno
         while True:
             print("\n--- Reservar Turno ---")
-            while True:
+            while True: # Se solicita el y valida el día a reservar
                 dia = input("Seleccione el día para reservar turno (1=Lunes, 2=Martes): ")
                 if dia != "1" and dia != "2":
-                    print("Error!\nDebe ingresar 1 para Lunes o 2 para Martes.")
+                    print("Error!\nDebe ingresar: '1' para día 'Lunes' o '2' para día 'Martes'.")
                     continue
                 else:
                     break
-            while True:
+            while True: # Se solicita y valida el formato del nombre del paciente
                 nombrePaciente = input("Ingrese el nombre del paciente (solo letras): ")
                 if not nombrePaciente.isalpha() or nombrePaciente == "":
                     print("Error!\nEl nombre del paciente debe contener solo letras.")
@@ -161,28 +161,28 @@ while True:
             if dia == "1" and nombrePaciente != lunes1 and nombrePaciente != lunes2 and nombrePaciente != lunes3 and nombrePaciente != lunes4:
                 if lunes1 == "":
                     lunes1 = nombrePaciente
-                    print(f"1er Turno libre: Turno reservado para {nombrePaciente.title()}.")
+                    print(f"1er Turno libre Lunes: Turno reservado para {nombrePaciente.title()}.")
                 elif lunes2 == "":
                     lunes2 = nombrePaciente
-                    print(f"2do Turno libre: Turno reservado para {nombrePaciente.title()}.")
+                    print(f"2do Turno libre Lunes: Turno reservado para {nombrePaciente.title()}.")
                 elif lunes3 == "":
                     lunes3 = nombrePaciente
-                    print(f"3er Turno libre: Turno reservado para {nombrePaciente.title()}.")
+                    print(f"3er Turno libre Lunes: Turno reservado para {nombrePaciente.title()}.")
                 elif lunes4 == "":
                     lunes4 = nombrePaciente
-                    print(f"4to Turno libre: Turno reservado para {nombrePaciente.title()}.")
+                    print(f"4to Turno libre Lunes: Turno reservado para {nombrePaciente.title()}.")
                 else:
                     print("Ya no hay turnos disponibles para el día Lunes.")
             elif dia == "2" and nombrePaciente != martes1 and nombrePaciente != martes2 and nombrePaciente != martes3:
                 if martes1 == "":
                     martes1 = nombrePaciente
-                    print(f"1er Turno libre: Turno reservado para {nombrePaciente.title()}.")
+                    print(f"1er Turno libre Martes: Turno reservado para {nombrePaciente.title()}.")
                 elif martes2 == "":
                     martes2 = nombrePaciente
-                    print(f"2do Turno libre: Turno reservado para {nombrePaciente.title()}.")
+                    print(f"2do Turno libre Martes: Turno reservado para {nombrePaciente.title()}.")
                 elif martes3 == "":
                     martes3 = nombrePaciente
-                    print(f"3er Turno libre: Turno reservado para {nombrePaciente.title()}.")
+                    print(f"3er Turno libre Martes: Turno reservado para {nombrePaciente.title()}.")
                 else:
                     print("Ya no hay turnos disponibles para el día Martes.")
             elif (dia == "1" and (nombrePaciente == lunes1 or nombrePaciente == lunes2 or nombrePaciente == lunes3 or nombrePaciente == lunes4)) or (dia == "2" and (nombrePaciente == martes1 or nombrePaciente == martes2 or nombrePaciente == martes3)):
@@ -190,43 +190,64 @@ while True:
             break
     elif opcion == 2: # Cancelar turno
         while True:
-            if lunes1 == "" and lunes2 == "" and lunes3 == "" and lunes4 == "" and martes1 == "" and martes2 == "" and martes3 == "":
+            if lunes1 == "" and lunes2 == "" and lunes3 == "" and lunes4 == "" and martes1 == "" and martes2 == "" and martes3 == "": # Caso para cuando no hay días para cancelar y se muestra en pantalla el mensaje correspondiente.
                 print("No hay turnos reservados para cancelar.")
                 break
-            else:
+            else: # Si hay día a cancelar se solicita los datos para evaluar si hay turno o no en el día ingresado del paciente ingresado.
                 while True:
-                    nombrePaciente = input("Ingrese el nombre del paciente del que desea cancelar el turno (solo letras): ")
-                    if not nombrePaciente.isalpha() or nombrePaciente == "":
-                        print("Error!\nEl nombre del paciente debe contener solo letras.")
-                        continue
-                    elif nombrePaciente == lunes1:
-                        lunes1 = ""
-                        print(f"1er Turno de Lunes, reservado a {nombrePaciente.title()} ha sidocancelado.")
-                        break
-                    elif nombrePaciente == lunes2:
-                        lunes2 = ""
-                        print(f"2do Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
-                        break
-                    elif nombrePaciente == lunes3:
-                        lunes3 = ""
-                        print(f"3er Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
-                        break
-                    elif nombrePaciente == lunes4:
-                        lunes4 = ""
-                        print(f"4to Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
-                        break
-                    elif nombrePaciente == martes1:
-                        martes1 = ""
-                        print(f"1er Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
-                        break
-                    elif nombrePaciente == martes2:
-                        martes2 = ""
-                        print(f"2do Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
-                        break
-                    elif nombrePaciente == martes3:
-                        martes3 = ""
-                        print(f"3er Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
-                        break
+                    while True: # Solicitamos el día del turno, en un ciclo while para su validación.
+                        diaCancelar = input("Ingrese el día del turno que desea cancelar el turno del paciente (1= Lunes/ 2= Martes): ")
+                        if not diaCancelar.isdigit() or int(diaCancelar) != 1 and int(diaCancelar) != 2:
+                            print("Error!\nEl día no es válido, por favor ingrese: '1' para día 'Lunes' o '2' para día 'Martes'.")
+                            continue
+                        else:
+                            break                    
+                    while True: # Solicitamos el nombre del Paciente, en un ciclo while para su validación.
+                        nombrePaciente = input("Ingrese el nombre del paciente del que desea cancelar el turno: ")
+                        if not nombrePaciente.isalpha() or nombrePaciente == "":
+                            print("Error!\nEl nombre del paciente debe contener solo letras.")
+                            continue
+                        else:
+                            break
+                    diaCancelarNro = int(diaCancelar)       
+                    if diaCancelarNro == 1: # Como diaCancelarNro es 1 entonces evaluamos para los días Lunes si hay turno a cancelar, sino lo hay se muestra por pantalla que no lo hay.
+                        if nombrePaciente == lunes1:
+                            lunes1 = ""
+                            print(f"1er Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
+                            break
+                        elif nombrePaciente == lunes2:
+                            lunes2 = ""
+                            print(f"2do Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
+                            break
+                        elif nombrePaciente == lunes3:
+                            lunes3 = ""
+                            print(f"3er Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
+                            break
+                        elif nombrePaciente == lunes4:
+                            lunes4 = ""
+                            print(f"4to Turno de Lunes, reservado a {nombrePaciente.title()} ha sido cancelado.")
+                            break
+                        else:
+                            print(f"No hay ningún turno ocupado para cancelar de {nombrePaciente.title()} el día Lunes.")
+                            break
+                    if diaCancelarNro == 2: # sino evaluamos los días Martes
+                        if nombrePaciente == martes1:
+                            martes1 = ""
+                            print(f"1er Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
+                            break
+                        elif nombrePaciente == martes2:
+                            martes2 = ""
+                            print(f"2do Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
+                            break
+                        elif nombrePaciente == martes3:
+                            martes3 = ""
+                            print(f"3er Turno de Martes, reservado a {nombrePaciente.title()} ha sido cancelado.")
+                            break
+                        else:
+                            print(f"No hay ningún turno ocupado para cancelar de {nombrePaciente.title()} el día Martes.")
+                            break
+                    break
+            break
     elif opcion == 3: # Ver agenda del día
         while True:
             dia = input("Seleccione el día para ver la agenda (1=Lunes, 2=Martes): ")
