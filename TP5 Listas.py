@@ -13,6 +13,7 @@ lista_notas = []
 nota_min = 10.0
 nota_max = 0.0
 
+print("¡Bienvenido!\nA continuación ingrese las notas entre 0.0 y 10.0.\n")
 for i in range(1,11):
     while True: # Ciclo para la solicitud y validación de notas.
         nota = input(f"Ingrese la nota Nº {i}: ").replace(',', '.')
