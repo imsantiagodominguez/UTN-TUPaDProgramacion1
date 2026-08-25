@@ -187,7 +187,7 @@ print('''> Pregunta:
 - Ingresar "1" para agregar un nuevo estudiante o "2" para eliminar uno existente.''')
 while True:
     accion = input("> ")
-    if not accion.isdigit() or int(accion) != 1 and int(accion) != 2:
+    if not accion.isdigit() or int(accion) != 1 and int(accion) != 2: # Validación de acción
         print("(!) Opción no válida.")
         print('''- Ingresar "1" para agregar un nuevo estudiante o "2" para eliminar uno existente.''')
         continue
@@ -195,28 +195,28 @@ while True:
          accion_validada = int(accion)
          break
     
-if accion_validada == 1:
+if accion_validada == 1: # Caso donde el usuario quiera agregar un nuevo estudiante al final de la lista ingresada
     while True: # Validación de la entrada, para que sea de tipo caracteres
         estudiante = input(f"> Ingrese el nombre del estudiante que desea agregar: ")
         if not estudiante.isalpha() or estudiante == "":
            print("(!) Nombre no válido.")
            continue
-        else:
+        else: 
             lista_estudiantes_en_clase.append(estudiante)
-            for i in range(len(lista_estudiantes_en_clase)):
+            for i in range(len(lista_estudiantes_en_clase)): # Se imprime por pantalla la lista ingresada dentro de una estructura repetitiva 
                 print(f"{lista_estudiantes_en_clase[i]}")
             break
-if accion_validada == 2:
+if accion_validada == 2: # Caso donde el usuario quiera eliminar un estudiante existente en la lista.
     while True:
-        estudiante_eliminar = input("-> Ingrese el estudiante existente en la lista que quiera eliminar: ")
-        for i in range(len(lista_estudiantes_en_clase)):
-            if estudiante_eliminar in lista_estudiantes_en_clase:
-                lista_estudiantes_en_clase.remove(estudiante_eliminar)
+        estudiante_eliminar = input("-> Ingrese el estudiante existente en la lista que quiera eliminar: ") # Solicitud de estudiante a eliminar.
+        for i in range(len(lista_estudiantes_en_clase)): # Se recorre la lista la cantidad de veces según los elementos que contenga
+            if estudiante_eliminar in lista_estudiantes_en_clase: # Si el estudiante ingresado a eliminar esta se borra de ella.
+                lista_estudiantes_en_clase.remove(estudiante_eliminar) # Mediante function .remove()
                 print(f'''> Se ha eliminado el estudiante "{estudiante_eliminar}" de la lista.
 >La lista actualizada es:''')
-                for i in range(len(lista_estudiantes_en_clase)):
+                for i in range(len(lista_estudiantes_en_clase)): # Se imprime por pantalla mensaje de que ha sido eliminado y se enseña la lista actualizada.
                     print(f"{lista_estudiantes_en_clase[i]}")
                 break
             else:
-                print(f'''> El estudiante ingresado no existe en la lista.''')
+                print(f'''> El estudiante ingresado no esta en la lista.''') # Caso donde el estudiante a eliminar ingresado por el usuario no se ha encontrado.
                 break
