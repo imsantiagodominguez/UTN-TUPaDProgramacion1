@@ -220,3 +220,31 @@ if accion_validada == 2: # Caso donde el usuario quiera eliminar un estudiante e
             else:
                 print(f'''> El estudiante ingresado no esta en la lista.''') # Caso donde el estudiante a eliminar ingresado por el usuario no se ha encontrado.
                 break
+
+
+# Ejercicio 6
+# Dada una lista con 7 números, rotar todos los elementos una posición hacia la derecha
+# (el último pasa a ser el primero).
+
+lista_7_numeros = []
+primer_elemento = ""
+
+print("Bienvenido, a continuación ingrese los números deseados de la lista.")
+for i in range(7):
+    print(f"-> Ingrese el número {i+1}") # Se imprime que sean números, pero el programa funcionaría con cualquier tipo de elementos (str, int, float, Boolean, listas).
+    num = input("> ")
+    lista_7_numeros.append(num)
+
+print() # Por visual
+
+print(f"-> La lista que ingreso es la siguiente:")
+for i in range(len(lista_7_numeros)):
+    print(f"{lista_7_numeros[i]}")
+
+print() # Por visual
+lista_7_numeros_rotados = lista_7_numeros[-1:] + lista_7_numeros[:-1] # Se utiliza el metodo de Slicing.
+
+# Se muestra la lista con los elementos rotados una posición hacia la derecha.
+print(f"-> La lista con los elementos rotados una posición hacia la derecha sería:")
+for i in range(len(lista_7_numeros_rotados)):
+    print(f"{lista_7_numeros_rotados[i]}")
