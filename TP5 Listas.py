@@ -31,7 +31,8 @@ for i in range(1,11):
     lista_notas.append(nota_valida)
 
 print() # por visual
-print(lista_notas)
+for i in range (len(lista_notas)): # Se muestra la lista completa de notas
+    print(f''' - NOTA "{i+1}": {lista_notas[i]}''')
 print() # por visual
 print(f" - El promedio de tus notas es de: {suma_notas/10}") # Se imprime el promedio y se cálcula en la misma línea.
 print(f" - La nota más alta ingresada es: {nota_max}")
@@ -46,15 +47,17 @@ print() # por visual
 
 lista_productos = []
 
-for i in range (5):
+for i in range (5): # Se solicitan los 5 productos.
     producto = input(f"Ingrese el producto nº {i+1}: ")
     lista_productos.append(producto)
 
-    lista_ordenada = sorted(lista_productos)
+lista_ordenada = sorted(lista_productos) # Se ordena la lista de elementos ingresada
 
-print(f" - La lista de productos que ingreso es la siguiente:\n{lista_ordenada}")
+print(f"\n - La lista de productos que ingreso es la siguiente:")
+for i in range(len(lista_ordenada)): # Se imprime la lista ingresada ya ordenada
+            print(f'''"{i+1}" {lista_ordenada[i]}''')
+
 eliminar = input(" - ¿Desea eliminar un producto y actualizar la lista? (y/n): ").lower()
-
 while True:
     if eliminar != "y" and eliminar != "n":
         print("Opción NO VÁLIDA...")
@@ -83,19 +86,29 @@ Siendo:
             break
     if quiero == "1":
         eliminado = lista_ordenada.pop(0) # Se actualiza el primer elemento por el ingresado.
-        print(f" - La lista de productos actualizada es la siguiente:\n{lista_ordenada}") # Se imprimer por pantalla la nueva lista.
+        print(f" - La lista de productos actualizada es la siguiente:") # Se imprimer por pantalla la nueva lista.
+        for i in range(len(lista_ordenada)):
+            print(f'''PRODUCTO "{i+1}": {lista_ordenada[i]}''')
     elif quiero == "2":
         eliminado = lista_ordenada.pop(1) # Se actualiza el primer elemento por el ingresado.
-        print(f" - La lista de productos actualizada es la siguiente:\n{lista_ordenada}") # Se imprimer por pantalla la nueva lista.
+        print(f" - La lista de productos actualizada es la siguiente:") # Se imprimer por pantalla la nueva lista.
+        for i in range(len(lista_ordenada)):
+            print(f'''PRODUCTO "{i+1}": {lista_ordenada[i]}''')
     elif quiero == "3":
         eliminado = lista_ordenada.pop(2) # Se actualiza el primer elemento por el ingresado.
-        print(f" - La lista de productos actualizada es la siguiente:\n{lista_ordenada}") # Se imprimer por pantalla la nueva lista.
+        print(f" - La lista de productos actualizada es la siguiente:") # Se imprimer por pantalla la nueva lista.
+        for i in range(len(lista_ordenada)):
+            print(f'''PRODUCTO "{i+1}": {lista_ordenada[i]}''')
     elif quiero == "4":
         eliminado = lista_ordenada.pop(3) # Se actualiza el primer elemento por el ingresado.
-        print(f" - La lista de productos actualizada es la siguiente:\n{lista_ordenada}") # Se imprimer por pantalla la nueva lista.
+        print(f" - La lista de productos actualizada es la siguiente:") # Se imprimer por pantalla la nueva lista.
+        for i in range(len(lista_ordenada)):
+            print(f'''PRODUCTO "{i+1}": {lista_ordenada[i]}''')
     elif quiero == "5":
         eliminado = lista_ordenada.pop(4) # Se actualiza el primer elemento por el ingresado.
-        print(f" - La lista de productos actualizada es la siguiente:\n{lista_ordenada}") # Se imprimer por pantalla la nueva lista.
+        print(f" - La lista de productos actualizada es la siguiente:") # Se imprimer por pantalla la nueva lista.
+        for i in range(len(lista_ordenada)):
+            print(f'''PRODUCTO "{i+1}": {lista_ordenada[i]}''')
     print(f" - PRODUCTO ELIMINADO: {eliminado}.")
 else:
     print("\n > NO ELIMINAR.\n - Okey, hasta pronto.")
