@@ -112,3 +112,34 @@ Siendo:
     print(f" - PRODUCTO ELIMINADO: {eliminado}.")
 else:
     print("\n > NO ELIMINAR.\n - Okey, hasta pronto.")
+
+
+#Ejercicio 3
+# Generar una lista con 15 números enteros al azar entre 1 y 100.
+#   - Crear una lista con los pares y otra con los impares.
+#   - Mostrar cuántos números tiene cada lista.
+
+import random
+
+numeros_random = [random.randint(1, 100) for _ in range(15)] # Se genera la lista de 15 números enteros random entre 1 y 100.
+lista_pares = []
+lista_impares = []
+
+for i in numeros_random: # Ciclo para recorrer la lista generada y contabilizar los pares e impares.
+    if i % 2 == 0:
+        lista_pares.append(i)
+    else:
+        lista_impares.append(i)
+
+# Se imprime la lista original de números random
+print(f''' - La lista original es:''')
+for i in range(15): 
+    print(f'''Número {i+1} = {numeros_random[i]}''')
+# Se imprime la lista de pares
+print(f'''\n - La lista de pares es:''')
+for i in range(len(lista_pares)):
+    print(f'''Número {i+1} = {numeros_random[i]}''')
+# Se imprime la lista de impares
+print(f'''\n - La lista de impares es:''')
+for i in range(len(lista_impares)):
+    print(f'''Número {i+1} = {numeros_random[i]}''')
