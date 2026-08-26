@@ -424,3 +424,72 @@ if not ganador:
 print("\n< RESULTADO DEL TABLERO >")
 for i in range(3):
         print(f"{tateti[i]}")
+
+# Ejercicio 10
+# Una tienda registra las ventas de 4 productos durante 7 días, en una matriz de 4x7.
+#   - Mostrar el total vendido por cada producto.
+#   - Mostrar el día con mayores ventas totales.
+#   - Indicar cuál fue el producto más vendido en la semana
+
+productos = 4 # Filas
+dias = 7 # Columnas
+lista_ventas = []
+
+for i in range(productos):
+    venta_del_producto = []
+    print()
+    print(f"<< REGISTRO DE VENTAS del PRODUCTO Nº {i+1} >>")
+    for j in range(dias):
+        while True: # Validacion de entrada
+            cant_ventas_producto = input(f"-> Cantidad de ventas el día: {j+1}:\n > ")
+            if not cant_ventas_producto.isdigit() or cant_ventas_producto == "" or int(cant_ventas_producto) < 0:
+                print("(!) Cantidad inválida. Ingrese una cantidad la cantidad en números enteros.")
+                continue
+            else:
+                venta_del_producto.append(int(cant_ventas_producto)) # Se va generando la lista de ventas 7 días(columnas) x cantidad de producto (filas)
+                break
+    lista_ventas.append(venta_del_producto) # Se agrega la lista que contiene los 7 días de ese producto
+print() # Por visual.
+
+# Total vendido por cada producto + producto con mayor ventas.
+max_producto = -1
+producto_max_ventas = []
+
+for i in range(productos): # Fila donde se recorre.
+    total_productos = 0 # VAR donde acumularemos cada producto, se reinicia cuando se termina de contabilizar 1 producto los 7 días, para su correcto funcionamiento.
+    for j in range(dias): # Se recorre cada columna de la fila.
+        total_productos += lista_ventas[i][j] # Se acumula cada dato que contenga (i, j)
+    print(f"Producto Nº {i+1}: {total_productos} unidades en total.")
+    if total_productos > max_producto: # Lógica para encontrar el producto con mayor venta en la semana.
+        max_producto = total_productos
+        producto_max_ventas = [i + 1]
+    elif total_productos == max_producto: # Si se EMPATAN con el máximo se forma una lista con estos días.
+        producto_max_ventas.append(i + 1)
+
+print() # Por visual.
+
+# Total ventas por día.
+max_ventas = -1
+dia_mayor_ventas = []
+for i in range(dias): # Recorremos cada día de 0 a 6 (7 días).
+    total_ventas = 0 # Acumulador de ventas totales x cada día, se reinicia en cada ciclo de día (i).
+    for j in range(productos): # Recorremos cada producto de ese día de 0 a 3 (4 productos).
+        total_ventas += lista_ventas[j][i]
+    print(f"-> El TOTAL de VENTAS del día {i+1} es de {total_ventas} unidades.")
+    if total_ventas > max_ventas: # Lógica para encontrar el día con mayor venta.
+        max_ventas = total_ventas
+        dia_mayor_ventas = [i+1] # Se va sumando uno para luego mostrar el día real donde hubo mayor total de ventas.
+    elif total_ventas == max_ventas:
+        dia_mayor_ventas.append(i+1) # Agregamos el día a la lista existente
+print()
+# Imprimimos el/los día(s) con mayores ventas totales.
+print(f'''-> El DÍA con MAYOR VENTAS fue de {max_ventas} productos.''')
+print("--> Ocurrió en el/los día(s): ", end = "") 
+for i in dia_mayor_ventas:
+    print(f'''{i}''', end = " ") # Por visual se utiliza end para imprimir en la linea anterior
+
+# Imprimimos cuál fue el/los producto(s) más vendido en la semana
+print(f'''\n-> El PRODUCTO con MAS VENTAS en la SEMANA es {producto_max_ventas} con {max_producto} unidades.''')
+print("--> Producto(s) más vendido(s): ", end = "")
+for i in producto_max_ventas:
+    print(f'''{i}''', end = " ") # Por visual se utiliza end para imprimir en la linea anterior
