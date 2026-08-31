@@ -119,14 +119,21 @@ for i in numeros_random: # Ciclo para recorrer la lista generada y contabilizar 
 print(f''' - La lista original es:''')
 for i in range(15): 
     print(f'''Número {i+1} = {numeros_random[i]}''')
+
 # Se imprime la lista de pares
 print(f'''\n - La lista de pares es:''')
 for i in range(len(lista_pares)):
-    print(f'''Número {i+1} = {numeros_random[i]}''')
+    print(f'''Número {i+1} = {lista_pares[i]}''')
+
 # Se imprime la lista de impares
 print(f'''\n - La lista de impares es:''')
 for i in range(len(lista_impares)):
-    print(f'''Número {i+1} = {numeros_random[i]}''')
+    print(f'''Número {i+1} = {lista_impares[i]}''')
+
+# Mostrar la cantidad de elementos en cada lista
+print(f"\n - La lista de pares tiene {len(lista_pares)} números.")
+print(f" - La lista de impares tiene {len(lista_impares)} números.")
+
 # Ejercicio 4
 # Dada una lista con valores repetidos:
 #   - Crear una nueva lista sin elementos repetidos.
