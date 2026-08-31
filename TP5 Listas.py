@@ -207,6 +207,7 @@ if accion_validada == 2: # Caso donde el usuario quiera eliminar un estudiante e
 >La lista actualizada es:''')
             for i in range(len(lista_estudiantes_en_clase)): # Se imprime por pantalla mensaje de que ha sido eliminado y se enseña la lista actualizada.
                 print(f"{lista_estudiantes_en_clase[i]}")
+            break
         else:
             print(f'''> El estudiante ingresado no esta en la lista.''') # Caso donde el estudiante a eliminar ingresado por el usuario no se ha encontrado.
             break
@@ -497,7 +498,7 @@ print(f'''\n-> El PRODUCTO con MAS VENTAS en la SEMANA es {producto_max_ventas} 
 print("--> Producto(s) más vendido(s): ", end = "")
 for i in producto_max_ventas:
     print(f'''{i}''', end = " ") # Por visual se utiliza end para imprimir en la linea anterior
-
+print() # Por visual
 
 # Ejercicio 11
 #  Crear una lista con los nombres de 10 estudiantes.
