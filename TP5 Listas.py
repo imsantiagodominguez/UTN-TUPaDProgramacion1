@@ -1,11 +1,12 @@
 # Resolución de Trabajo Práctico 5 - Listas x Santiago Dominguez
 
-
+print("_" *50)
 # Ejercicio 1
 # Crear una lista con las notas de 10 estudiantes.
 #   - Mostrar la lista completa
 #   - Calcular y mostrar el promedio.
 #   - Indicar la nota mas alta y la mas baja.
+print(">> CONSIGNA 1: Notas de estudiantes <<\n")
 
 suma_notas = 0.0
 promedio = 0.0
@@ -41,11 +42,12 @@ print(f" - La nota más alta ingresada es: {nota_max}")
 print(f" - La nota más baja ingresada es: {nota_min}")
 print() # por visual
 
-
+print("_" *50)
 # Ejercicio 2
 # Pedir al usuario que cargue 5 productos en una lista.
 #   - Mostrar la lista ordenada alfabéticamente. Investigue el uso del método sorted().
 #   - Preguntar al usuario qué producto desea eliminar y actualizar la lista.
+print(">> CONSIGNA 2: Lista de productos <<\n")
 
 lista_productos = []
 
@@ -97,11 +99,12 @@ Siendo:
 else:
     print("\n > NO ELIMINAR.\n - Okey, hasta pronto.")
 
-
+print("_" *50)
 #Ejercicio 3
 # Generar una lista con 15 números enteros al azar entre 1 y 100.
 #   - Crear una lista con los pares y otra con los impares.
 #   - Mostrar cuántos números tiene cada lista.
+print(">> CONSIGNA 3: Números pares e impares al azar <<\n")
 
 import random
 
@@ -134,10 +137,12 @@ for i in range(len(lista_impares)):
 print(f"\n - La lista de pares tiene {len(lista_pares)} números.")
 print(f" - La lista de impares tiene {len(lista_impares)} números.")
 
+print("_" *50)
 # Ejercicio 4
 # Dada una lista con valores repetidos:
 #   - Crear una nueva lista sin elementos repetidos.
 #   - Mostrar el resultado.
+print(">> CONSIGNA 4: Eliminar duplicados <<\n")
 
 datos = [1, 3, 5, 3, 7, 1, 9, 5, 3]
 print(" >> RESULTADO DE LISTA ORIGINAL. ")
@@ -155,11 +160,12 @@ print(" >> RESULTADO DE LISTA SIN ELEMENTOS REPETIDOS. ")
 for i in range(len(sin_repetir)):
     print(f'''Valor nº {i+1}: {sin_repetir[i]}''')
 
-
+print("_" *50)
 # Ejercicio 5
 # Crear una lista con los nombres de 8 estudiantes presentes en clase.
 #   - Preguntar al usuario si quiere agregar un nuevo estudiante o eliminar uno existente.
 #   - Mostrar la lista final actualizada.
+print(">> CONSIGNA 5: Gestión de estudiantes (Agregar / Eliminar) <<\n")
 
 cant_presentes = 8
 lista_estudiantes_en_clase = []
@@ -212,10 +218,11 @@ if accion_validada == 2: # Caso donde el usuario quiera eliminar un estudiante e
             print(f'''> El estudiante ingresado no esta en la lista.''') # Caso donde el estudiante a eliminar ingresado por el usuario no se ha encontrado.
             break
 
-
+print("_" *50)
 # Ejercicio 6
 # Dada una lista con 7 números, rotar todos los elementos una posición hacia la derecha
 # (el último pasa a ser el primero).
+print(">> CONSIGNA 6: Rotación 1 a la derecha <<\n")
 
 lista_7_numeros = []
 primer_elemento = ""
@@ -240,11 +247,12 @@ print(f"-> La lista con los elementos rotados una posición hacia la derecha ser
 for i in range(len(lista_7_numeros_rotados)):
     print(f"{lista_7_numeros_rotados[i]}")
 
-
+print("_" *50)
 # Ejercicio 7
 # Crear una matriz (lista anidada) de 7x2 con las temperaturas mínimas y máximas de a semana.
 #   - Calcular el promedio de las mínimas y el de las máximas.
 #   - Mostrar en qué día se registró la mayor amplitud térmica.
+print(">> CONSIGNA 7: Matriz de temperaturas <<\n")
 
 lista_temperaturas = []
 filas = 7
@@ -310,11 +318,12 @@ else:
             break
     print(f"\n-> La mayor amplitud térmica registrada fue de {mayor_amplitud} ºC y fue registrada el día {dia_mayor_amplitud}.")
 
-
+print("_" *50)
 # Ejercicio 8
 # Crear una matriz con las notas de 5 estudiantes en 3 materias.
 #   - Mostrar el promedio de cada estudiante.
 #   - Mostrar el promedio de cada materia.
+print(">> CONSIGNA 8: Matriz de notas (Estudiantes/Materias) <<\n")
 
 estudiantes = 5
 materias = 3
@@ -348,12 +357,13 @@ for j in range(materias):
     promedio_materia = suma_materias[j]/estudiantes
     print(f"-> Promedio de la MATERIA Nº {j+1} es de: {promedio_materia:.2f}")
 
-
+print("_" *50)
 # Ejercicio 9
 # Representar un tablero de Ta-Te-Ti como una lista de listas (3x3).
 #   - Inicializarlo con guiones "-" representando casillas vacías.
 #   - Permitir que dos jugadores ingresen posiciones (fila, columna) para colocar "X" o "O".
 #   - Mostrar el tablero después de cada jugada.
+print(">> CONSIGNA 9: Ta-Te-Ti <<\n")
 
 tateti = [["-" for _ in range (3)] for _ in range (3)]
 jugador_1 = ""
@@ -370,7 +380,7 @@ while True:
         break
     else:
         print('''(!) Símbolo inválido, por favor ingrese uno de los solicitado.''')
-        jugador = input('''-> ¿Que símbolo desea ser "X" o "O"?:\n> ''').upper()
+        continue
 
 jugadas = 0
 ganador = False
@@ -429,12 +439,13 @@ print("\n< RESULTADO DEL TABLERO >")
 for i in range(3):
         print(f"{tateti[i]}")
 
-
+print("_" *50)
 # Ejercicio 10
 # Una tienda registra las ventas de 4 productos durante 7 días, en una matriz de 4x7.
 #   - Mostrar el total vendido por cada producto.
 #   - Mostrar el día con mayores ventas totales.
 #   - Indicar cuál fue el producto más vendido en la semana
+print(">> CONSIGNA 10: Matriz de ventas 4x7 <<\n")
 
 productos = 4 # Filas
 dias = 7 # Columnas
@@ -442,7 +453,6 @@ lista_ventas = []
 
 for i in range(productos):
     venta_del_producto = []
-    print()
     print(f"<< REGISTRO DE VENTAS del PRODUCTO Nº {i+1} >>")
     for j in range(dias):
         while True: # Validacion de entrada
@@ -500,12 +510,14 @@ for i in producto_max_ventas:
     print(f'''{i}''', end = " ") # Por visual se utiliza end para imprimir en la linea anterior
 print() # Por visual
 
+print("_" *50)
 # Ejercicio 11
 #  Crear una lista con los nombres de 10 estudiantes.
 #   - Solicitar al usuario que ingrese un nombre a buscar.
 #   - Indicar si el nombre se encuentra en la lista.
 #   - Mostrar la posición en la que aparece.
 #   - Si no se encuentra, informar que no está en la lista.
+print(">> CONSIGNA 11: Búsqueda de estudiante <<\n")
 
 cantidad_estudiantes = 10
 lista_estudiantes = []
@@ -532,13 +544,14 @@ if estudiante_buscar in lista_estudiantes: # Caso para cuando el estudiante a bu
 else:
     print(">> NO SE ENCONTRÓ.\n>> El estudiante a buscar ingresado no se encuentra en la lista.")
 
-
+print("_" *50)
 # Ejercicio 12
 #  Pedir al usuario que ingrese 8 números enteros y almacenarlos en una lista.
 #   - Mostrar la lista original.
 #   - Mostrar la lista ordenada de menor a mayor.
 #   - Mostrar la lista ordenada de mayor a menor.
 #   - Investigar el uso de sorted() y del parámetro reverse.
+print(">> CONSIGNA 12: Ordenamiento <<\n")
 
 cantidad_numeros = 8 # VAR para la cantidad de elementos en la lista.
 lista_enteros = [] # VAR para almacenar los números.
@@ -581,13 +594,14 @@ for i in range(len(lista_enteros_menor_mayor)): # Utilizo esta condicion para mo
     else:
         print(f"{lista_enteros_menor_mayor[i]},", end = " ")
 
-
+print("_" *50)
 # Ejercicio 13
 #  Dada la siguiente lista de puntajes de un videojuego:
 puntajes = [450, 1200, 875, 990, 300, 1500, 640]
 #   - Mostrar el puntaje más alto y el más bajo.
 #   - Mostrar la lista ordenada de mayor a menor (ranking).
 #   - Indicar en qué posición del ranking se encuentra el puntaje 990.
+print(">> CONSIGNA 13: Puntajes de videojuego <<\n")
 
 mayor = puntajes[0] # Iniciamos las variables mayor con el elemento 0 de la lista, esto para que funcione para cualquier tipo de lista.
 menor = puntajes[0] # lo mismo para menor.
@@ -598,7 +612,6 @@ for i in range (1, len(puntajes)): # En el ciclo for, iniciamos en "posición" 1
     if puntajes[i] < menor:
         menor = puntajes[i]
 
-print()
 print(f'''>> El puntaje más alto es: {mayor}.''')
 print(f'''>> El puntaje más bajo es: {menor}.''')
 
