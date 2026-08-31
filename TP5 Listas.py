@@ -561,8 +561,8 @@ for i in range(len(lista_enteros)):
     else:
         print(f"{lista_enteros[i]},", end = " ")
 
-lista_enteros_mayor_menor = sorted(lista_enteros, reverse= False) # Como se solicita, investigue sobre el uso de sorted y reverse. 
-lista_enteros_menor_mayor = sorted(lista_enteros, reverse = True) # En el caso de menor a mayor, se solicita que lo haga en reverse, por eso "reverse = True" 
+lista_enteros_mayor_menor = sorted(lista_enteros, reverse= True) # Como se solicita, investigue sobre el uso de sorted y reverse. 
+lista_enteros_menor_mayor = sorted(lista_enteros, reverse = False) # En el caso de menor a mayor, se solicita que lo haga en reverse, por eso "reverse = True" 
 
 print()
 print('''>> La lista que ha formado ORDENADA de MAYOR A MENOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de mayor a menor.
