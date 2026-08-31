@@ -425,6 +425,7 @@
 #for i in range(3):
 #        print(f"{tateti[i]}")
 #
+#
 ## Ejercicio 10
 ## Una tienda registra las ventas de 4 productos durante 7 días, en una matriz de 4x7.
 ##   - Mostrar el total vendido por cada producto.
@@ -493,34 +494,85 @@
 #print("--> Producto(s) más vendido(s): ", end = "")
 #for i in producto_max_ventas:
 #    print(f'''{i}''', end = " ") # Por visual se utiliza end para imprimir en la linea anterior
+#
+#
+## Ejercicio 11
+##  Crear una lista con los nombres de 10 estudiantes.
+##   - Solicitar al usuario que ingrese un nombre a buscar.
+##   - Indicar si el nombre se encuentra en la lista.
+##   - Mostrar la posición en la que aparece.
+##   - Si no se encuentra, informar que no está en la lista.
+#
+#cantidad_estudiantes = 10
+#lista_estudiantes = []
+#
+#for i in range(cantidad_estudiantes): # bucle repetitivo para ingresar los estudiantes a una lista.
+#    while True: # bucle While para la validación del formato de los nombres, para que el usuario no ingrese números ni algo vacío.
+#        estudiante = input(f'''>> Ingrese el nombre del estudiante Nº{i+1}:\n > ''').title()
+#        if estudiante.isalpha() and estudiante != "":
+#            lista_estudiantes.append(estudiante)
+#            break
+#        else:
+#            print("(!) Formato de nombre inválido.")
+#            continue
+#
+#print() # Por visual.
+#estudiante_buscar = input(">> Ingrese el nombre del estudiante que desea buscar en la lista:\n > ").title() # Se solicita el estudiante a buscar.
+#
+#if estudiante_buscar in lista_estudiantes: # Caso para cuando el estudiante a buscar se encuentra dentro de la lista.
+#    for i in range(len(lista_estudiantes)):
+#        if estudiante_buscar == lista_estudiantes[i]: # Si estudiante_buscar es == al elemento que tiene lista en la pos i en ese ciclo, se guarda la posición
+#            posicion_encontrada = i+1 # sumandole 1 para que sea el número real.
+#            print(f">> ENCONTRADO.\n>> El estudiante a buscar ingresado ({estudiante_buscar}) se encuentra en la posición {posicion_encontrada}.")
+#            break
+#else:
+#    print(">> NO SE ENCONTRÓ.\n>> El estudiante a buscar ingresado no se encuentra en la lista.")
 
-# Ejercicio 11
-#  Crear una lista con los nombres de 10 estudiantes.
-#   - Solicitar al usuario que ingrese un nombre a buscar.
-#   - Indicar si el nombre se encuentra en la lista.
-#   - Mostrar la posición en la que aparece.
-#   - Si no se encuentra, informar que no está en la lista.
 
-lista_estudiantes = []
+# Ejercicio 12
+#  Pedir al usuario que ingrese 8 números enteros y almacenarlos en una lista.
+#   - Mostrar la lista original.
+#   - Mostrar la lista ordenada de menor a mayor.
+#   - Mostrar la lista ordenada de mayor a menor.
+#   - Investigar el uso de sorted() y del parámetro reverse.
 
-for i in range(10):
-    while True:
-        estudiante = input(f'''>> Ingrese el nombre del estudiante Nº{i+1}:\n > ''').title()
-        if estudiante.isalpha() and estudiante != "":
-            lista_estudiantes.append(estudiante)
+cantidad_numeros = 8 # VAR para la cantidad de elementos en la lista.
+lista_enteros = [] # VAR para almacenar los números.
+
+for i in range(cantidad_numeros): # bucle repetitivo para ingresar los números a una lista.
+    while True: # bucle While para la validación del formato de los números enteros.
+        numero = input(f'''>> Ingrese el número Nº{i+1}:\n > ''')
+        if numero.isdigit() and int(numero) >= 0:
+            numero_valido = int(numero) # variable temporal para pasar el valor ingresado ya validado como entero
+            lista_enteros.append(numero_valido)
             break
         else:
-            print("(!) Formato de nombre inválido.")
+            print("(!) Vacio ó Número incompatible. Ingrese solo números enteros.")
             continue
 
-estudiante_buscar = input(">> Ingrese el nombre del estudiante que desea buscar en la lista:\n > ").title()
+print()
+print('''>> La lista que ha formado es la siguiente: ''') # Se imprime por pantalla la lista ingresada.
+for i in range(len(lista_enteros)):
+    if i == len(lista_enteros) - 1: # Utilizo esta condicion para mostrar de una forma más estética la lista.
+        print(f"{lista_enteros[i]}.")
+    else:
+        print(f"{lista_enteros[i]},", end = " ")
 
-if estudiante_buscar in lista_estudiantes:
-    for i in range(len(lista_estudiantes)):
-        if estudiante_buscar == lista_estudiantes[i]:
-            posicion_encontrada = i+1
-            print(f">> ENCONTRADO.\n>> El estudiante a buscar ingresado ({estudiante_buscar}) se encuentra en la posición {posicion_encontrada}.")
-            break
-else:
-    print(">> NO SE ENCONTRÓ.\n>> El estudiante a buscar ingresado no se encuentra en la lista.")
-    
+lista_enteros_mayor_menor = sorted(lista_enteros, reverse= False) # Como se solicita, investigue sobre el uso de sorted y reverse. 
+lista_enteros_menor_mayor = sorted(lista_enteros, reverse = True) # En el caso de menor a mayor, se solicita que lo haga en reverse, por eso "reverse = True" 
+
+print()
+print('''>> La lista que ha formado ORDENADA de MAYOR A MENOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de mayor a menor.
+for i in range(len(lista_enteros_mayor_menor)): # Utilizo esta condicion para mostrar de una forma más estética la lista.
+    if i == len(lista_enteros_mayor_menor) - 1:
+        print(f"{lista_enteros_mayor_menor[i]}.")
+    else:
+        print(f"{lista_enteros_mayor_menor[i]},", end = " ")
+
+print()
+print('''>> La lista que ha formado ORDENADA de MENOR A MAYOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de menor a mayor.
+for i in range(len(lista_enteros_menor_mayor)): # Utilizo esta condicion para mostrar de una forma más estética la lista.
+    if i == len(lista_enteros_menor_mayor) - 1:
+        print(f"{lista_enteros_menor_mayor[i]}.")
+    else:
+        print(f"{lista_enteros_menor_mayor[i]},", end = " ")
