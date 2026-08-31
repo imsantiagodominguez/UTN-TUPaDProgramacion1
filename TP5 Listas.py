@@ -248,6 +248,8 @@ for i in range(len(lista_7_numeros_rotados)):
 lista_temperaturas = []
 filas = 7
 columnas = 2
+suma_minimas = 0.0
+suma_maximas = 0.0
 
 print("(!) A continuación ingrese las temperaturas de la lista. ")
 for i in range(filas):
@@ -275,6 +277,17 @@ for i in range(filas):
     temperatura_min = lista_temperaturas[i][0] # Ordenamos las temperaturas minimás en la pos (i) 0, que sería a la izquierda.
     temperatura_max = lista_temperaturas[i][1] # Ordenamos las temperaturas minimás en la pos (i) 1, que sería a la derecha.
     print(f"-> Día {i+1}: Mínima {temperatura_min} ºC y Máxima {temperatura_max} ºC.") # Se imprime por pantalla las temperaturas por día con su minima y maxima.
+
+# Calculamos promedio de las temperaturas mínimas y máximas.
+for i in range(filas): # Ciclo para sumar
+    suma_minimas += lista_temperaturas[i][0]  # Suma de la columna de mínimas
+    suma_maximas += lista_temperaturas[i][1] # Suma de la columna de máximas
+
+promedio_minimas = suma_minimas / filas
+promedio_maximas = suma_maximas / filas
+
+print(f"\n-> El promedio de las temperaturas mínimas es: {promedio_minimas:.1f} ºC")
+print(f"-> El promedio de las temperaturas máximas es: {promedio_maximas:.1f} ºC")
 
 # Evaluamos la MAX amplitud térmica.
 amplitudes = []
