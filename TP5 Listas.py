@@ -527,52 +527,89 @@
 #            break
 #else:
 #    print(">> NO SE ENCONTRÓ.\n>> El estudiante a buscar ingresado no se encuentra en la lista.")
+#
+#
+## Ejercicio 12
+##  Pedir al usuario que ingrese 8 números enteros y almacenarlos en una lista.
+##   - Mostrar la lista original.
+##   - Mostrar la lista ordenada de menor a mayor.
+##   - Mostrar la lista ordenada de mayor a menor.
+##   - Investigar el uso de sorted() y del parámetro reverse.
+#
+#cantidad_numeros = 8 # VAR para la cantidad de elementos en la lista.
+#lista_enteros = [] # VAR para almacenar los números.
+#
+#for i in range(cantidad_numeros): # bucle repetitivo para ingresar los números a una lista.
+#    while True: # bucle While para la validación del formato de los números enteros.
+#        numero = input(f'''>> Ingrese el número Nº{i+1}:\n > ''')
+#        if numero.isdigit() and int(numero) >= 0:
+#            numero_valido = int(numero) # variable temporal para pasar el valor ingresado ya validado como entero
+#            lista_enteros.append(numero_valido)
+#            break
+#        else:
+#            print("(!) Vacio ó Número incompatible. Ingrese solo números enteros.")
+#            continue
+#
+#print()
+#print('''>> La lista que ha formado es la siguiente: ''') # Se imprime por pantalla la lista ingresada.
+#for i in range(len(lista_enteros)):
+#    if i == len(lista_enteros) - 1: # Utilizo esta condicion para mostrar de una forma más estética la lista.
+#        print(f"{lista_enteros[i]}.")
+#    else:
+#        print(f"{lista_enteros[i]},", end = " ")
+#
+#lista_enteros_mayor_menor = sorted(lista_enteros, reverse= False) # Como se solicita, investigue sobre el uso de sorted y reverse. 
+#lista_enteros_menor_mayor = sorted(lista_enteros, reverse = True) # En el caso de menor a mayor, se solicita que lo haga en reverse, por eso "reverse = True" 
+#
+#print()
+#print('''>> La lista que ha formado ORDENADA de MAYOR A MENOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de mayor a menor.
+#for i in range(len(lista_enteros_mayor_menor)): # Utilizo esta condicion para mostrar de una forma más estética la lista.
+#    if i == len(lista_enteros_mayor_menor) - 1:
+#        print(f"{lista_enteros_mayor_menor[i]}.")
+#    else:
+#        print(f"{lista_enteros_mayor_menor[i]},", end = " ")
+#
+#print()
+#print('''>> La lista que ha formado ORDENADA de MENOR A MAYOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de menor a mayor.
+#for i in range(len(lista_enteros_menor_mayor)): # Utilizo esta condicion para mostrar de una forma más estética la lista.
+#    if i == len(lista_enteros_menor_mayor) - 1:
+#        print(f"{lista_enteros_menor_mayor[i]}.")
+#    else:
+#        print(f"{lista_enteros_menor_mayor[i]},", end = " ")
 
 
-# Ejercicio 12
-#  Pedir al usuario que ingrese 8 números enteros y almacenarlos en una lista.
-#   - Mostrar la lista original.
-#   - Mostrar la lista ordenada de menor a mayor.
-#   - Mostrar la lista ordenada de mayor a menor.
-#   - Investigar el uso de sorted() y del parámetro reverse.
+# Ejercicio 13
+#  Dada la siguiente lista de puntajes de un videojuego:
+puntajes = [450, 1200, 875, 990, 300, 1500, 640]
+#   - Mostrar el puntaje más alto y el más bajo.
+#   - Mostrar la lista ordenada de mayor a menor (ranking).
+#   - Indicar en qué posición del ranking se encuentra el puntaje 990.
 
-cantidad_numeros = 8 # VAR para la cantidad de elementos en la lista.
-lista_enteros = [] # VAR para almacenar los números.
+mayor = puntajes[0] # Iniciamos las variables mayor con el elemento 0 de la lista, esto para que funcione para cualquier tipo de lista.
+menor = puntajes[0] # lo mismo para menor.
 
-for i in range(cantidad_numeros): # bucle repetitivo para ingresar los números a una lista.
-    while True: # bucle While para la validación del formato de los números enteros.
-        numero = input(f'''>> Ingrese el número Nº{i+1}:\n > ''')
-        if numero.isdigit() and int(numero) >= 0:
-            numero_valido = int(numero) # variable temporal para pasar el valor ingresado ya validado como entero
-            lista_enteros.append(numero_valido)
-            break
-        else:
-            print("(!) Vacio ó Número incompatible. Ingrese solo números enteros.")
-            continue
+for i in range (1, len(puntajes)): # En el ciclo for, iniciamos en "posición" 1 ya que la "posición" 0 la tenemos guardada en mayor y menor.
+    if puntajes[i] > mayor:
+        mayor = puntajes[i]
+    if puntajes[i] < menor:
+        menor = puntajes[i]
 
 print()
-print('''>> La lista que ha formado es la siguiente: ''') # Se imprime por pantalla la lista ingresada.
-for i in range(len(lista_enteros)):
-    if i == len(lista_enteros) - 1: # Utilizo esta condicion para mostrar de una forma más estética la lista.
-        print(f"{lista_enteros[i]}.")
-    else:
-        print(f"{lista_enteros[i]},", end = " ")
+print(f'''>> El puntaje más alto es: {mayor}.''')
+print(f'''>> El puntaje más bajo es: {menor}.''')
 
-lista_enteros_mayor_menor = sorted(lista_enteros, reverse= False) # Como se solicita, investigue sobre el uso de sorted y reverse. 
-lista_enteros_menor_mayor = sorted(lista_enteros, reverse = True) # En el caso de menor a mayor, se solicita que lo haga en reverse, por eso "reverse = True" 
+puntajes_ordenada = sorted(puntajes, reverse = True) # Generamos la lista nueva con sorted de la lista puntajes de mayor a menor, es decir el ranking.
+print()
+print('''>> La lista ordenada de mayor a menor, o bien, el "RANKING" es el siguiente:''')
+for i in range(len(puntajes_ordenada)): # Utilizo esta condicion para mostrar de una forma más estética la lista.
+    if i == len(puntajes_ordenada) - 1:
+        print(f"{puntajes_ordenada[i]}.")
+    else:
+        print(f"{puntajes_ordenada[i]},", end = " ")
 
 print()
-print('''>> La lista que ha formado ORDENADA de MAYOR A MENOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de mayor a menor.
-for i in range(len(lista_enteros_mayor_menor)): # Utilizo esta condicion para mostrar de una forma más estética la lista.
-    if i == len(lista_enteros_mayor_menor) - 1:
-        print(f"{lista_enteros_mayor_menor[i]}.")
-    else:
-        print(f"{lista_enteros_mayor_menor[i]},", end = " ")
-
-print()
-print('''>> La lista que ha formado ORDENADA de MENOR A MAYOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de menor a mayor.
-for i in range(len(lista_enteros_menor_mayor)): # Utilizo esta condicion para mostrar de una forma más estética la lista.
-    if i == len(lista_enteros_menor_mayor) - 1:
-        print(f"{lista_enteros_menor_mayor[i]}.")
-    else:
-        print(f"{lista_enteros_menor_mayor[i]},", end = " ")
+for i in range(len(puntajes_ordenada)):
+    if puntajes_ordenada[i] == 990:
+        pos_900 = i+1
+        print(f'''>> El puntaje "990" se encuentra en la posición {pos_900} del ranking.''')
+        break
