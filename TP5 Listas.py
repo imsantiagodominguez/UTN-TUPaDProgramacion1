@@ -17,7 +17,7 @@ print("¡Bienvenido!\nA continuación ingrese las notas entre 0.0 y 10.0.\n")
 for i in range(1,11):
     while True: # Ciclo para la solicitud y validación de notas.
         nota = input(f"Ingrese la nota Nº {i}: ").replace(',', '.')
-        if not nota.isdigit() or float(nota) < 0 or float(nota) > 10:
+        if not nota.replace('.', '', 1).isdigit() or float(nota) < 0 or float(nota) > 10:
             print("Ingrese una nota valida, entre 0.0 y 10.0.")
             continue
         else:
@@ -512,7 +512,7 @@ lista_estudiantes = []
 for i in range(cantidad_estudiantes): # bucle repetitivo para ingresar los estudiantes a una lista.
     while True: # bucle While para la validación del formato de los nombres, para que el usuario no ingrese números ni algo vacío.
         estudiante = input(f'''>> Ingrese el nombre del estudiante Nº{i+1}:\n > ''').title()
-        if estudiante.isalpha() and estudiante != "":
+        if estudiante.replace(" ", "").isalpha() and estudiante != "":
             lista_estudiantes.append(estudiante)
             break
         else:
@@ -561,8 +561,8 @@ for i in range(len(lista_enteros)):
     else:
         print(f"{lista_enteros[i]},", end = " ")
 
-lista_enteros_mayor_menor = sorted(lista_enteros, reverse= True) # Como se solicita, investigue sobre el uso de sorted y reverse. 
-lista_enteros_menor_mayor = sorted(lista_enteros, reverse = False) # En el caso de menor a mayor, se solicita que lo haga en reverse, por eso "reverse = True" 
+lista_enteros_mayor_menor = sorted(lista_enteros, reverse= True) # Utilizando sorted generamos las listas nuevas ordenadas de la forma solicitada.
+lista_enteros_menor_mayor = sorted(lista_enteros, reverse = False) # En el caso de menor a mayor, se solicita que lo haga en reverse, es decir reverse = False, ya que True ordena de mayor a menor. 
 
 print()
 print('''>> La lista que ha formado ORDENADA de MAYOR A MENOR es la siguiente: ''') # Se imprime por pantalla la lista ingresada ordenada de mayor a menor.
