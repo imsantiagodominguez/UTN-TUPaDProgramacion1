@@ -1,7 +1,6 @@
 from collections import Counter
 
-print("¡Bienvenido a mi resolución del Trabajo Práctico de la Unidad 7 - Datos Complejos\nby: Santiago Dominguez.")
-
+print("¡Bienvenido a mi resolución del Trabajo Práctico de la Unidad 7 - Datos Complejos\nby: Santiago Dominguez.")#
 print("--> Ejercicio 1 - Diccionario de precios.")
 '''Dado el diccionario precios_frutas :'''
 precios_frutas = {
@@ -13,56 +12,41 @@ precios_frutas = {
 '''Se deben añadir las siguientes frutas con sus respectivos precios:
 Naranja = 1200
 Manzana = 1500
-Pera = 2300'''
-
-print(precios_frutas)
-
+Pera = 2300'''#
+print(precios_frutas)#
 precios_frutas["Naranja"] = 1200
 precios_frutas["Manzana"] = 1500
-precios_frutas["Pera"] = 2300
-
-print(precios_frutas)
-
-print()
-
+precios_frutas["Pera"] = 2300#
+print(precios_frutas)#
+print()#
 print("--> Ejercicio 2 - Actualizar precios.")
 '''Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código
 desarrollado en el punto anterior, se deben actualizar los precios de las siguientes frutas:
 Banana = 1330
 Manzana = 1700
-Melón = 2800'''
-
+Melón = 2800'''#
 precios_frutas["Banana"] = 1330
 precios_frutas["Manzana"] = 1700
 precios_frutas["Melón"] = 2800
-print(precios_frutas)
-
-print()
-
+print(precios_frutas)#
+print()#
 print("--> Ejercicio 3 - Lista de frutas.")
 '''Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código
 desarrollado en el punto anterior, se debe crear una lista que contenga únicamente las
-frutas, sin los precios.'''
-
-frutas = precios_frutas.keys()
-
-print(list(frutas))
-
-print()
-
+frutas, sin los precios.'''#
+frutas = precios_frutas.keys()#
+print(list(frutas))#
+print()#
 print("--> Ejercicio 4 - Agenda de contactos.")
 '''Se debe desarrollar un programa que permita almacenar y consultar números telefónicos.
 -El programa debe permitir al usuario cargar 5 contactos con su nombre como clave y número como valor.
--Luego, debe pedir un nombre y mostrar el número asociado, si existe.
-
+-Luego, debe pedir un nombre y mostrar el número asociado, si existe.#
 Ejemplo:
 contactos = {"Juan": "123456", "Ana": "987654"}
 Consultar: "Juan" -> muestra "123456"
-'''
-
+'''#
 agenda = {}
-cantidad_contactos = 3
-
+cantidad_contactos = 3#
 for cantidad_contactos in range (3):
     nombre = input(f"-> Ingrese el NOMBRE del contacto Nº{cantidad_contactos+1} a añadir a la Agenda de Contactos: ")
     telefono = input(f"-> Ingrese el teléfono del mismo: ")
@@ -72,30 +56,24 @@ consulta = input("-> Ingrese el NOMBRE del contacto a consultar: ")
 if not consulta in agenda:
     print("(!) El NOMBRE del contacto ingresado no existe en la agenda de contactos.")
 else:
-    print(agenda[consulta])
-
-print()
-
+    print(agenda[consulta])#
+print()#
 print("--> Ejercicio 5 - Palabras únicas y conteo.")
 '''El programa debe solicitar al usuario una frase e imprimir:
 -Las palabras únicas (usando un set).
 -Un diccionario con la cantidad de veces que aparece cada palabra.
-Ejemplo:
-
+Ejemplo:#
 Entrada -> "hola mundo hola"
 Salida:
 Palabras_únicas: {'hola', 'mundo'}
-Recuento: {'hola': 2, 'mundo': 1}'''
-
+Recuento: {'hola': 2, 'mundo': 1}'''#
 frase = input("-> Ingrese una frase: ") 
 cant_palabras_unicas = frase.split()
 print(len(set(cant_palabras_unicas)))
 cant_x_palabra = Counter(cant_palabras_unicas)
-print(dict(cant_x_palabra))
-
-print()
-
-print("--> Ejercicio 6 - Promedio de notas por alumno")
+print(dict(cant_x_palabra))#
+print()#
+print("--> Ejercicio 6 - Promedio de notas por alumno.")
 '''El programa debe permitir ingresar los nombres de 3 alumnos y, para cada uno, una tupla
 de 3 notas. Luego, debe mostrar el promedio de cada alumno.
 Ejemplo:
@@ -103,10 +81,9 @@ alumnos = {
 "Sofía": (10, 9, 8),
 "Luis": (6, 7, 7),
 "Marta": (8, 9, 9)
-}'''
-
+}'''#
 alumnos = {}
-cantidad_alumnos = 3
+cantidad_alumnos = 3#
 for cantidad_alumnos in range(3):
     # Solicitud de datos
     nombre = input(f"-> Ingrese el NOMBRE del Alumno Nº {cantidad_alumnos+1}: ")
@@ -118,6 +95,43 @@ for cantidad_alumnos in range(3):
 # Calcúlo de promedios:
 for nombre, notas in alumnos.items():
     promedio = round(sum(notas)/3, 2)
-    print(f"El promedio de {nombre} es: {promedio}")
+    print(f"El promedio de {nombre} es: {promedio}")#
+print()
+
+print("--> Ejercicio 7 - Asistencia a una capacitación.")
+'''Se recibe el registro diario de asistencia a una capacitación en forma de lista. En dicha lista
+pueden aparecer nombres repetidos, ya que una misma persona pudo haber asistido en
+más de una jornada.
+
+Ejemplo:
+asistencias = ["Ana", "Luis", "Ana", "María", "Luis", "Pedro", "Ana"]
+
+El programa debe:
+-Mostrar la lista original de asistencias.
+-Generar un conjunto (set) a partir de la lista y mostrar las personas que asistieron al menos una vez (sin repetir nombres).
+-Indicar cuántas veces asistió cada persona a la capacitación'''
+
+asistencias = []
+cant_asistencias = int(input("--> Ingrese la cantidad de asistencias, en número entero, a registrar: "))
+
+for i in range(cant_asistencias):
+    asist = input("-> Ingrese el nombre de la persona que asistió: ")
+    asistencias.append(asist)
+
+print()
+# Se imprime la lista original de asistencias.
+print(f"La lista de asistencias es: {sorted(asistencias)}") # Se muestra la lista original ingresada y ordenada alfabeticamente.
+
+print()
+# Se genera un conjunto a partir de la lista y muestra las personas que asistieron al menos una vez, sin repetir nombres.
+quien_asist = set(asistencias)
+for i in sorted(quien_asist):
+    print(f">> {i} ha asistido al menos una vez.") # Imprime nombre por nombre.
+
+print()
+# Se indica cuantas veces asistió cada persona a la capacitación.
+for i in sorted(quien_asist):
+    cant_asistio = asistencias.count(i)
+    print(f">> {i} asistió {cant_asistio} veces.")
 
 print()
