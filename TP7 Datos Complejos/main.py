@@ -94,3 +94,30 @@ cant_x_palabra = Counter(cant_palabras_unicas)
 print(dict(cant_x_palabra))
 
 print()
+
+print("--> Ejercicio 6 - Promedio de notas por alumno")
+'''El programa debe permitir ingresar los nombres de 3 alumnos y, para cada uno, una tupla
+de 3 notas. Luego, debe mostrar el promedio de cada alumno.
+Ejemplo:
+alumnos = {
+"Sofía": (10, 9, 8),
+"Luis": (6, 7, 7),
+"Marta": (8, 9, 9)
+}'''
+
+alumnos = {}
+cantidad_alumnos = 3
+for cantidad_alumnos in range(3):
+    # Solicitud de datos
+    nombre = input(f"-> Ingrese el NOMBRE del Alumno Nº {cantidad_alumnos+1}: ")
+    nota1 = int(input("-> Ingrese la 1er nota: "))
+    nota2 = int(input("-> Ingrese la 2da nota: "))
+    nota3 = int(input("-> Ingrese la 3er nota: "))
+    notas = (nota1, nota2, nota3)
+    alumnos[nombre] = notas # Se añade la clave nueva (alumno en este caso) y se le asigna como valor la tupla con las tres notas del alumno.
+# Calcúlo de promedios:
+for nombre, notas in alumnos.items():
+    promedio = round(sum(notas)/3, 2)
+    print(f"El promedio de {nombre} es: {promedio}")
+
+print()
