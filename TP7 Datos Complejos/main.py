@@ -207,3 +207,38 @@ else:
     print("***** El producto ya en el stock. *****")
 print('''>>> FIN EJERCICIO 8 <<<''')
 print()
+
+print('''--> Ejercicio 9 - Agenda por día y hora''')
+'''Se debe crear una agenda donde las claves sean tuplas de (día, hora) y los valores sean
+eventos.
+Ejemplo:
+agenda = {
+    ("lunes", "10:00"): "Reunión",
+    ("martes", "15:00"): "Clase de inglés"
+}
+El programa debe permitir consultar qué actividad hay en cierto día y hora.'''
+print()
+
+agenda = {}
+
+cant_fechas_agendar = int(input('''-> Ingrese la cantidad de eventos a agendar: '''))
+for i in range(cant_fechas_agendar):
+    dia = input("-> Ingrese el día del evento a agendar: ")
+    hora = input(f"-> Ingrese la hora del evento {dia} a agendar: ")
+    fecha = (dia, hora)
+    evento = input("-> Ingrese la actividad del evento a agandar: ")
+    agenda[fecha] = evento
+print()
+
+print("(>) Consulta de actividad (dia, hora)")
+consulta_dia = input("-> Ingrese el día del evento que desea consultar: ")
+consulta_hora = input(f"-> Ingrese la hora del {consulta_dia} para consultar el evento agendado: ")
+if (consulta_dia, consulta_hora) not in agenda:
+    print(f'''***** ¡NO hay ningún evento agendado para el día: {consulta_dia} a la hora: {consulta_hora} *****''')
+else:
+    actividad_consulta = agenda.get((consulta_dia, consulta_hora))
+    print(f'''>> La actividad agendada para el día {consulta_dia} a la hora {consulta_hora} es "{actividad_consulta}".''')
+print()
+
+print('''>>> FIN EJERCICIO 9 <<<''')
+print()
