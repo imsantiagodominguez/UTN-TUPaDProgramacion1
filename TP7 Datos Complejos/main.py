@@ -1,3 +1,5 @@
+from collections import Counter
+
 print("¡Bienvenido a mi resolución del Trabajo Práctico de la Unidad 7 - Datos Complejos\nby: Santiago Dominguez.")
 
 print("--> Ejercicio 1 - Diccionario de precios.")
@@ -48,10 +50,10 @@ print(list(frutas))
 
 print()
 
-print("--> Ejercicio 4 - Agenda de contactos")
+print("--> Ejercicio 4 - Agenda de contactos.")
 '''Se debe desarrollar un programa que permita almacenar y consultar números telefónicos.
-El programa debe permitir al usuario cargar 5 contactos con su nombre como clave y número como valor.
-Luego, debe pedir un nombre y mostrar el número asociado, si existe.
+-El programa debe permitir al usuario cargar 5 contactos con su nombre como clave y número como valor.
+-Luego, debe pedir un nombre y mostrar el número asociado, si existe.
 
 Ejemplo:
 contactos = {"Juan": "123456", "Ana": "987654"}
@@ -71,3 +73,24 @@ if not consulta in agenda:
     print("(!) El NOMBRE del contacto ingresado no existe en la agenda de contactos.")
 else:
     print(agenda[consulta])
+
+print()
+
+print("--> Ejercicio 5 - Palabras únicas y conteo.")
+'''El programa debe solicitar al usuario una frase e imprimir:
+-Las palabras únicas (usando un set).
+-Un diccionario con la cantidad de veces que aparece cada palabra.
+Ejemplo:
+
+Entrada -> "hola mundo hola"
+Salida:
+Palabras_únicas: {'hola', 'mundo'}
+Recuento: {'hola': 2, 'mundo': 1}'''
+
+frase = input("-> Ingrese una frase: ") 
+cant_palabras_unicas = frase.split()
+print(len(set(cant_palabras_unicas)))
+cant_x_palabra = Counter(cant_palabras_unicas)
+print(dict(cant_x_palabra))
+
+print()
