@@ -18,7 +18,9 @@ precios_frutas["Naranja"] = 1200
 precios_frutas["Manzana"] = 1500
 precios_frutas["Pera"] = 2300#
 print(precios_frutas)#
+print('''>>> FIN EJERCICIO 1 <<< ''')
 print()#
+
 print("--> Ejercicio 2 - Actualizar precios.")
 '''Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código
 desarrollado en el punto anterior, se deben actualizar los precios de las siguientes frutas:
@@ -29,14 +31,18 @@ precios_frutas["Banana"] = 1330
 precios_frutas["Manzana"] = 1700
 precios_frutas["Melón"] = 2800
 print(precios_frutas)#
+print('''>>> FIN EJERCICIO 2 <<< ''')
 print()#
+
 print("--> Ejercicio 3 - Lista de frutas.")
 '''Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código
 desarrollado en el punto anterior, se debe crear una lista que contenga únicamente las
 frutas, sin los precios.'''#
 frutas = precios_frutas.keys()#
 print(list(frutas))#
-print()#
+print('''>>> FIN EJERCICIO 3 <<< ''')
+print()
+
 print("--> Ejercicio 4 - Agenda de contactos.")
 '''Se debe desarrollar un programa que permita almacenar y consultar números telefónicos.
 -El programa debe permitir al usuario cargar 5 contactos con su nombre como clave y número como valor.
@@ -57,7 +63,9 @@ if not consulta in agenda:
     print("(!) El NOMBRE del contacto ingresado no existe en la agenda de contactos.")
 else:
     print(agenda[consulta])#
+print('''>>> FIN EJERCICIO 4 <<< ''')
 print()#
+
 print("--> Ejercicio 5 - Palabras únicas y conteo.")
 '''El programa debe solicitar al usuario una frase e imprimir:
 -Las palabras únicas (usando un set).
@@ -72,7 +80,9 @@ cant_palabras_unicas = frase.split()
 print(len(set(cant_palabras_unicas)))
 cant_x_palabra = Counter(cant_palabras_unicas)
 print(dict(cant_x_palabra))#
+print('''>>> FIN EJERCICIO 5 <<< ''')
 print()#
+
 print("--> Ejercicio 6 - Promedio de notas por alumno.")
 '''El programa debe permitir ingresar los nombres de 3 alumnos y, para cada uno, una tupla
 de 3 notas. Luego, debe mostrar el promedio de cada alumno.
@@ -96,6 +106,7 @@ for cantidad_alumnos in range(3):
 for nombre, notas in alumnos.items():
     promedio = round(sum(notas)/3, 2)
     print(f"El promedio de {nombre} es: {promedio}")#
+print('''>>> FIN EJERCICIO 6 <<< ''')
 print()
 
 print("--> Ejercicio 7 - Asistencia a una capacitación.")
@@ -112,7 +123,7 @@ El programa debe:
 -Indicar cuántas veces asistió cada persona a la capacitación'''
 
 asistencias = []
-cant_asistencias = int(input("--> Ingrese la cantidad de asistencias, en número entero, a registrar: "))
+cant_asistencias = int(input("-> Ingrese la cantidad de asistencias, en número entero, a registrar: "))
 
 for i in range(cant_asistencias):
     asist = input("-> Ingrese el nombre de la persona que asistió: ")
@@ -120,7 +131,7 @@ for i in range(cant_asistencias):
 
 print()
 # Se imprime la lista original de asistencias.
-print(f"La lista de asistencias es: {sorted(asistencias)}") # Se muestra la lista original ingresada y ordenada alfabeticamente.
+print(f">> La lista de asistencias es: {sorted(asistencias)}") # Se muestra la lista original ingresada y ordenada alfabeticamente.
 
 print()
 # Se genera un conjunto a partir de la lista y muestra las personas que asistieron al menos una vez, sin repetir nombres.
@@ -133,5 +144,66 @@ print()
 for i in sorted(quien_asist):
     cant_asistio = asistencias.count(i)
     print(f">> {i} asistió {cant_asistio} veces.")
+print('''>>> FIN EJERCICIO 7 <<< ''')
+print()
 
+print("--> Ejercicio 8 - Stock de productos.")
+'''Se debe armar un diccionario donde las claves sean nombres de productos y los valores
+su stock. El programa debe permitir al usuario:
+-Consultar el stock de un producto ingresado.
+-Agregar unidades al stock si el producto ya existe.
+-Agregar un nuevo producto si no existe.'''
+
+# Se solicita cantidad de productos a cargar:
+cant_productos = int(input("-> Ingrese la cantidad de productos a cargar en el stock: "))
+print()
+
+# Se crea el diccionario y se completa con los datos que ingrese el usuario.
+stock = {}
+for i in range(cant_productos):
+    producto = input(f'''-> Ingrese el nombre del producto nº {i+1}: ''')
+    unidades = int(input(f'''-> Ingrese las unidades del producto nº {i+1}: '''))
+    stock[producto] = unidades
+print()
+
+# Consulta de stock de un producto:
+consulta = input('''(>) Consulta de stock de un producto.
+-> Ingrese el nombre de un producto a chequear el stock: ''')
+if consulta in stock:
+    unidades_d_consulta = stock[consulta]
+    print(f">> El stock actualizado del producto {consulta} es de {unidades_d_consulta} unidades.")
+else:
+    print('''***** El producto a consultar no existe *****''')
+print()
+
+# Agregar unidades al stock de un producto existente:
+agregar_a_producto = input('''(>) Agregar stock de un producto existente.
+(!) Si no existe el programa sigue.
+-> Ingrese el nombre del producto a ingresar mas unidades al stock: ''')
+if agregar_a_producto in stock:
+    mas_u = int(input('''¡OK! El producto esta en el stock.
+-> Ingrese las unidades a sumar al stock: '''))
+    stock_actual = stock[agregar_a_producto]
+    stock_actualizado = stock_actual+ mas_u
+    stock[agregar_a_producto] = stock_actualizado
+    print(f'''>> Se actualizo el stock del producto {producto} y ahora tiene {stock_actualizado} unidades.''')
+else:
+    print('''***** El producto no existe en el stock *****''')
+print()
+
+# Agregar producto si no existe:
+agregar_p = input('''(>) Agregar nuevo producto.
+(!) Si existe no se añáde.
+-> Ingrese el nombre del producto nuevo a ingresar al stock: ''')
+if agregar_p not in stock:
+    unidades = int(input('''¡OK! El producto no se encuentra en el stock.
+-> Ingrese las unidades del producto nuevo: '''))
+    stock[agregar_p] = unidades
+    # Se imprime stock con el producto añadido:
+    print(f'''\n>> El stock es:''')
+    for producto, unidades in stock.items():
+        print(f'''* PRODUCTO: {producto} | UNIDADES: {unidades}''')
+else:
+    print("***** El producto ya en el stock. *****")
+print('''>>> FIN EJERCICIO 8 <<<''')
 print()
