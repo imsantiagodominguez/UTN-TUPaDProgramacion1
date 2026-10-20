@@ -47,3 +47,27 @@ frutas = precios_frutas.keys()
 print(list(frutas))
 
 print()
+
+print("--> Ejercicio 4 - Agenda de contactos")
+'''Se debe desarrollar un programa que permita almacenar y consultar números telefónicos.
+El programa debe permitir al usuario cargar 5 contactos con su nombre como clave y número como valor.
+Luego, debe pedir un nombre y mostrar el número asociado, si existe.
+
+Ejemplo:
+contactos = {"Juan": "123456", "Ana": "987654"}
+Consultar: "Juan" -> muestra "123456"
+'''
+
+agenda = {}
+cantidad_contactos = 3
+
+for cantidad_contactos in range (3):
+    nombre = input(f"-> Ingrese el NOMBRE del contacto Nº{cantidad_contactos+1} a añadir a la Agenda de Contactos: ")
+    telefono = input(f"-> Ingrese el teléfono del mismo: ")
+    agenda[nombre] = telefono
+    print()
+consulta = input("-> Ingrese el NOMBRE del contacto a consultar: ")
+if not consulta in agenda:
+    print("(!) El NOMBRE del contacto ingresado no existe en la agenda de contactos.")
+else:
+    print(agenda[consulta])
