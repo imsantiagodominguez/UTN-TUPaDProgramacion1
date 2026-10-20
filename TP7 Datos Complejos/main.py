@@ -36,3 +36,14 @@ precios_frutas["Melón"] = 2800
 print(precios_frutas)
 
 print()
+
+print("--> Ejercicio 3 - Lista de frutas.")
+'''Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código
+desarrollado en el punto anterior, se debe crear una lista que contenga únicamente las
+frutas, sin los precios.'''
+
+frutas = precios_frutas.keys()
+
+print(list(frutas))
+
+print()
