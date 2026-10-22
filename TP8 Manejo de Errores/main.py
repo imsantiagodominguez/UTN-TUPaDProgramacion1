@@ -14,3 +14,22 @@ b = input("Introduce un número: ")
 numbers = [1, 2, 3]
 #print(numbers[5]) # IndexError ya que se quiere imprimir por pantalla un indice que no existe en la lista numbers.
 print()
+
+print("--> Ejercicio 2 · Corregir sin excepciones")
+'''Utilizando el código del ejercicio 1, arreglar los errores para que la ejecución del programa
+sea correcta sin necesidad de usar excepciones.'''
+
+a = 10
+b = int(input("Introduce un número: "))
+while True:
+    b = int(input("Introduce un número: "))
+    if b != 0:
+        break
+    else:
+        continue
+result = a / b
+print(f"Resultado: {result}")
+
+numbers = [1, 2, 3]
+print(numbers[2])
+print()
