@@ -72,3 +72,29 @@ try:
 except IndexError:
     print("(!) IndexError: El índice a imprimir no existe.")
 print()
+
+print("--> Ejercicio 5 · Agregar else y finally")
+'''Repetir el ejercicio 4, pero esta vez incluyendo bloques else y finally.'''
+
+try:
+    a = 10
+    b = input("-> Introduce un número: ")
+    result = a / b
+    print(f"Resultado: {result}")
+except TypeError:
+    print("(!) TypeError: No es posible realizar la división entre un 'str' y un 'int'.")
+else:
+    print(">> Ingrese al 'else'.")
+finally:
+    print(">> Fin primer 'try'.")
+
+try:
+    numbers = [1, 2, 3]
+    print(numbers[5])
+except IndexError:
+    print("(!) IndexError: El índice a imprimir no existe.")
+else:
+    print(">> Ingrese al 'else'.")
+finally:
+    print(">> Fin segundo 'try'.")
+print()
