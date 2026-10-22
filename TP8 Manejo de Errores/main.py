@@ -111,7 +111,24 @@ try:
 except ValueError:
 # Este error se dispara específicamente cuando el input no puede convertirse a número.
     print("(!) Debe ingresar un número válido.")
-except Exception as e:
+except BaseException as e:
 # Captura cualquier otro error no previsto.
-    print("(!) Se produjo un error inesperado: {e}")
+    print(f"\n(!) Se produjo un error inesperado: {type(e).__name__}")
+print()
+
+print("--> Ejercicio 7 · Permitir reintentar el ingreso")
+'''Repetir el ejercicio 6, pero añadiendo la posibilidad de que el usuario intente ingresar un
+nuevo número luego de encontrar un error.'''
+
+while True:
+    try:
+        num_user = float(input("-> Ingrese un número: "))
+        print(f">> El número ingresado es: {num_user}")
+        break
+    except ValueError:
+    # Este error se dispara específicamente cuando el input no puede convertirse a número.
+        print("(!) Debe ingresar un número válido.")
+    except BaseException as e:
+    # Captura cualquier error no previsto.
+        print(f"\n(!) Se produjo un error inesperado: {type(e).__name__}")
 print()
