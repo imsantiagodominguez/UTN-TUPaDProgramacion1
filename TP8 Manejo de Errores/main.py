@@ -44,12 +44,31 @@ try:
     b = input("-> Introduce un número: ")
     result = a / b
     print(f"Resultado: {result}")
-except TypeError:
+except:
     print("(!) No es posible realizar la división entre un 'str' y un 'int'.")
 
 try:
     numbers = [1, 2, 3]
     print(numbers[5])
-except IndexError:
+except:
     print("(!) El índice a imprimir no existe.")
+print()
+
+print("--> Ejercicio 4 · Excepciones múltiples")
+'''Repetir el ejercicio 3, pero usando excepciones múltiples que hagan alusión a los tipos de
+errores detectados.'''
+
+try:
+    a = 10
+    b = input("-> Introduce un número: ")
+    result = a / b
+    print(f"Resultado: {result}")
+except TypeError:
+    print("(!) TypeError: No es posible realizar la división entre un 'str' y un 'int'.")
+
+try:
+    numbers = [1, 2, 3]
+    print(numbers[5])
+except IndexError:
+    print("(!) IndexError: El índice a imprimir no existe.")
 print()
