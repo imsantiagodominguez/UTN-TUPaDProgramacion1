@@ -20,16 +20,36 @@ print("--> Ejercicio 2 · Corregir sin excepciones")
 sea correcta sin necesidad de usar excepciones.'''
 
 a = 10
-b = int(input("Introduce un número: "))
 while True:
     b = int(input("Introduce un número: "))
     if b != 0:
         break
     else:
+        print("(!) No es posible realizar la división entre 0.")
         continue
 result = a / b
 print(f"Resultado: {result}")
 
 numbers = [1, 2, 3]
-print(numbers[2])
+print(numbers[2]) # Se cambia el indice a imprimir por uno existente de la lista numbers.
+print()
+
+print("--> Ejercicio 3 · Agregar try-except")
+'''Utilizando el código del ejercicio 1, mantener el código con los errores originales e incluir
+bloques try-except para que la ejecución del programa no se frene al encontrar los
+errores.'''
+
+try:
+    a = 10
+    b = input("-> Introduce un número: ")
+    result = a / b
+    print(f"Resultado: {result}")
+except TypeError:
+    print("(!) No es posible realizar la división entre un 'str' y un 'int'.")
+
+try:
+    numbers = [1, 2, 3]
+    print(numbers[5])
+except IndexError:
+    print("(!) El índice a imprimir no existe.")
 print()
