@@ -69,4 +69,27 @@ with open("productos.txt", "r") as archivo:
                     }
         productos.append(producto)
 # Se muestra por pantalla la lista confeccionada finalmente.
-print(productos) 
+print(productos)
+
+print("_"*70)
+'''Consigna 5. Buscar producto por nombre: Pedir al usuario que ingrese el nombre de un
+producto. Recorrer la lista de productos y, si lo encuentra, mostrar todos sus datos. Si
+no existe, mostrar un mensaje de error.'''
+print('''(>) Solución Ejer. 5\n''')
+
+buscar_producto = input(">> Ingrese el producto a buscar en la lista: ").strip()
+# Se utiliza una variable booleana para registrar si se halló el producto
+encontrado = False
+
+for p in productos:
+    # Se utiliza .lower() en la comparación porque permite que encuentre el producto sin importar si se escribió en mayúsculas o minúsculas.
+    if p["nombre"].lower() == buscar_producto.lower():
+        print(''' >> Producto encontrado. Sus datos son los siguientes:''')
+        print(f"Producto: {p['nombre']} | Precio: ${p['precio']} | Cantidad: {p['cantidad']}")        
+        encontrado = True
+        break
+# Caso de no existir el producto ingresado
+if not encontrado:
+    print("(ERROR!) << El producto ingresado no se ha encontrado >>")
+
+print("_"*70)
