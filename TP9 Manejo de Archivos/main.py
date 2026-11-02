@@ -9,9 +9,9 @@ print('''(>) Solución Ejer. 1:\n''')
 print(">> Se crea productos. txt")
 # Se abre productos.txt en modo Write, para en caso de que no exista lo cree, si existe lo sobreescribirá para una ejecución esperada.
 with open("productos.txt", "w") as archivo:
-    archivo.write("Producto1,10,5\n")
-    archivo.write("Producto2,20,3\n")
-    archivo.write("Producto3,15,8\n")
+    archivo.write("Producto1,10.2,5\n")
+    archivo.write("Producto2,20.9,3\n")
+    archivo.write("Producto3,15.5,8\n")
 
 print("_"*70)
 '''Consigna 2. Leer y mostrar productos: Crear un programa que abra productos.txt, lea cada
@@ -39,7 +39,7 @@ cantidad = input("-> Ingrese la cantidad: ")
 
 try:
     with open("productos.txt", "a") as archivo:
-        archivo.write(f"{nombre},{precio},{cantidad}")
+        archivo.write(f"{nombre},{precio},{cantidad}\n")
 # Se agrega except para caso donde el archivo no se encuentre.
 except FileNotFoundError:
     print("(ERROR!) << El archivo productos.txt no existe >>")
@@ -93,3 +93,23 @@ if not encontrado:
     print("(ERROR!) << El producto ingresado no se ha encontrado >>")
 
 print("_"*70)
+'''Consigna 6. Guardar los productos actualizados: Tras leer, buscar o agregar productos,
+mantener la lista actualizada con todos los registros y sobrescribir productos.txt
+desde ella, sin perder los productos incorporados.'''
+print('''(>) Solución Ejer. 6\n''')
+
+# Se abre productos.txt en modo 'w' para sobreescribirlo con el contenido actual de la lista 'productos'
+with open("productos.txt", "w") as archivo:
+    for p in productos:
+        archivo.write(f"{p['nombre']},{p['precio']},{p['cantidad']}\n")
+
+print("(>) El archivo 'productos.txt' ha sido actualizado y guardado correctamente.")
+
+# Se verifica por pantalla cómo quedó el archivo finalmente
+print("\n>> Contenido final del archivo guardado:")
+with open("productos.txt", "r") as archivo:
+    print(archivo.read())
+    
+print("_"*70)
+print('''<<< FIN DE TRABAJO PRACTICO Nº9 - Manejo de Archivos >>>
+Muchas gracias, hasta pronto.''')
