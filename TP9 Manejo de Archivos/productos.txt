@@ -1,4 +1,0 @@
-Producto1,10,5
-Producto2,20,3
-Producto3,15,8
-santek,10000,50
