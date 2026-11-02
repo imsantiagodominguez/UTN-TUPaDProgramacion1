@@ -31,3 +31,16 @@ print("_"*70)
 los productos, le pida al usuario que ingrese un nuevo producto (nombre, precio,
 cantidad) y lo agregue al archivo sin borrar el contenido existente.'''
 print('''(>) Solución Ejer. 3\n''')
+print('''>> Ingrese los datos del producto nuevo a agregar:''')
+
+nombre = input("-> Ingrese el nombre: ")
+precio = input("-> Ingrese el precio: ")
+cantidad = input("-> Ingrese la cantidad: ")
+
+try:
+    with open("productos.txt", "a") as archivo:
+        archivo.write(f"{nombre},{precio},{cantidad}")
+except FileNotFoundError:
+    print("(ERROR!) << El archivo productos.txt no existe >>")
+except Exception as e:
+    print(f"(ERROR!) << Ha ocurrido un error inesperado: {e} >>")
