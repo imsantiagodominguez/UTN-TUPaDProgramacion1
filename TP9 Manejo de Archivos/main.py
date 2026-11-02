@@ -24,31 +24,66 @@ print('''>> Se abre productos.txt y se muestra los productos cargados en ella:''
 with open("productos.txt", "r") as archivo:
     for linea in archivo:
         nombre, precio, cantidad = linea.strip().split(",")
-        print(f"Nombre de producto: {nombre} | Precio: {precio} | Cantidad: {cantidad}")
+        print(f"Producto: {nombre} | Precio: ${precio} | Cantidad: {cantidad}")
 
 print("_"*70)
 '''Consigna 3. Agregar productos desde teclado: Modificar el programa para que luego de mostrar
 los productos, le pida al usuario que ingrese un nuevo producto (nombre, precio,
 cantidad) y lo agregue al archivo sin borrar el contenido existente.'''
 print('''(>) Solución Ejer. 3\n''')
-print('''>> Ingrese los datos del producto nuevo a agregar:''')
-# Solicitud de datos para el producto a agregar
-nombre = input("-> Ingrese el nombre: ")
-precio = input("-> Ingrese el precio: ")
-cantidad = input("-> Ingrese la cantidad: ")
 
+#  1. Validación de cantidad a ingresar
+while True:
+    try:
+        cantidad_nuevos = int(input(">> Ingrese la cantidad de productos que desea agregar, de forma númerica entera positiva: "))
+        if cantidad_nuevos >= 0:
+            break
+        else:
+            print("(ERROR!) << Debe ser un número mayor o igual que 0 >>")
+    except ValueError:
+        print("(ERROR!) << Se espera una cantidad de forma númerica y entera positiva >>")
+    except Exception as e:
+        print(f"(ERROR!) << Ha ocurrido un error inesperado: {e} >>")
+
+print('''>> Ingrese los datos del producto nuevo a agregar:''')
+# 2. Bucle para pedir y guardar cada producto
 try:
     with open("productos.txt", "a") as archivo:
-        archivo.write(f"{nombre},{precio},{cantidad}\n")
+        for i in range(cantidad_nuevos):
+            nombre = input("-> Ingrese el nombre: ").strip()
+            # Validación para el precio del producto
+            while True:                
+                try:
+                    precio = float(input("-> Ingrese el precio: "))
+                    if precio > 0:
+                        break
+                    else:
+                        print("(ERROR!) << El precio debe ser un número positivo mayor a 0 >>")
+                except ValueError:
+                    print("(ERROR!) << Se espera un número válido (use punto para decimales) >>")
+                except Exception as e:
+                    print(f"(ERROR!) << Ha ocurrido un error inesperado: {e} >>")
+            # Validación para la cantidad del producto
+            while True:
+                try:
+                    cantidad = int(input("-> Ingrese la cantidad: "))
+                    if cantidad >= 0:
+                        break
+                    else:
+                        print("(ERROR!) << La cantidad debe ser un número entero mayor o igual que 0 >>")
+                except ValueError:
+                    print("(ERROR!) << Se espera una cantidad de forma númerica y entera positiva >>")
+                except Exception as e:
+                    print(f"(ERROR!) << Ha ocurrido un error inesperado: {e} >>")
+                    
+            # Se escribe en el archivo con su correspondiente salto de línea
+            archivo.write(f"{nombre},{precio},{cantidad}\n")
+    print(f"\n(>) Se agregaron {cantidad_nuevos} producto(s) a 'productos.txt' exitosamente.")
 # Se agrega except para caso donde el archivo no se encuentre.
 except FileNotFoundError:
     print("(ERROR!) << El archivo productos.txt no existe >>")
-# Se agrega except para cualquier otro caso inesperado.
 except Exception as e:
-    print(f"(ERROR!) << Ha ocurrido un error inesperado: {e} >>")
-# Se utiliza finally para enseñar por pantalla que el producto ingresado por el usuario fue añadido al .txt
-finally:
-    print("(>) Producto añadido a 'productos.txt' exitosamente.")
+    print(f"(ERROR!) << Ha ocurrido un error inesperado al guardar: {e} >>")
 
 print("_"*70)
 '''Consigna 4. Cargar productos en una lista de diccionarios: Al leer el archivo, cargar los datos en
