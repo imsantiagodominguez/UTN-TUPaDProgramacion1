@@ -2,9 +2,9 @@ print('''¡Bienvenido a mi solución al TP10 - Recursividad!
 Alumno: Santiago Dominguez''')
 print("_"*70)
 
-from def_func import fact, fibonacci, potencia, num_bin
+from def_func import fact, fibonacci, potencia, num_bin, es_palindromo
 
-print("(>) Solución Ejer. 1:\n")
+print("(>) Solución Ejer. 1: Factorial hasta 'x' número entero positivo\n")
 
 while True:
     num_entrada = input(">> Ingrese un número entero no negativo: ")
@@ -22,7 +22,7 @@ while True:
         
 print("_"*70)
 
-print("(>) Solución Ejer. 2:\n")
+print("(>) Solución Ejer. 2: Sucesión de Fibonacci hasta 'x' número (admite positivos y negativos)\n")
 
 while True:
     num_pos = input(">> Ingrese un número entero para calcular el valor de la sucesión de Fibnacci hasta esa posición: ")
@@ -38,7 +38,7 @@ while True:
     
 print("_"*70)
 
-print("(>) Solución Ejer. 3:\n")
+print("(>) Solución Ejer. 3: Potencia no negativa de un número\n")
 
 base = float(input(">> Ingrese el número base de su potencia: "))
 while True:
@@ -56,7 +56,7 @@ print(potencia(base, exponente))
 
 print("_"*70)
 
-print("(>) Solución Ejer. 4:\n")
+print("(>) Solución Ejer. 4: Representación binaria de un número entero positivo\n")
 
 while True:
     try:
@@ -69,5 +69,23 @@ while True:
         print("(ERROR!) << El número a convertir debe ser un número positivo >>")
 
 print(num_bin(binario))
+
+print("_"*70)
+
+print("(>) Solución Ejer. 5: ¿'x' palabra es palíndromo?\n")
+
+while True:
+    palabra = (input(">> Ingrese una palabra: "))
+    if palabra.isalpha() and palabra.isascii():
+        break
+    else:
+        print("(ERROR!) << Debe ingresar únicamente letras >>")
+
+soy_palindromo = es_palindromo(palabra)
+
+if soy_palindromo == True:
+    print(f''' >> VERDADERO, la palabra "{palabra.title()}" es palíndromo.''')
+else:
+    print(f''' >> FALSO, la palabra "{palabra.title()}" no es palíndromo.''')
 
 print("_"*70)
