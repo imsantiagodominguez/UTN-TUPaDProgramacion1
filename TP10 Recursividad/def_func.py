@@ -65,7 +65,7 @@ def es_palindromo(palabra):
     else:
         return es_palindromo(palabra[1:-1])
     
-'''Se pide escribir una función recursiva en Python llamada suma_digitos(n) que reciba un
+'''Consigna 6. Se pide escribir una función recursiva en Python llamada suma_digitos(n) que reciba un
 número entero positivo y devuelva la suma de todos sus dígitos.
 Restricciones:
 - No se puede convertir el número a cadena de texto.
@@ -78,7 +78,7 @@ def suma_digitos(n):
         resto_numero = n // 10
         return ultimo_digito + suma_digitos(resto_numero)
 
-'''Consigna 6. Un niño está construyendo una pirámide con bloques. En el nivel más bajo coloca n
+'''Consigna 7. Un niño está construyendo una pirámide con bloques. En el nivel más bajo coloca n
 bloques, en el siguiente nivel uno menos (n - 1), y así sucesivamente hasta llegar al último
 nivel con un solo bloque.
 Se pide escribir una función recursiva contar_bloques(n) que reciba el número de bloques
@@ -95,3 +95,17 @@ def contar_bloques(n):
     else:
         return n + contar_bloques(n-1)
 
+'''Consigna 8. Se pide escribir una función recursiva llamada contar_digito(numero, digito) 
+que reciba un número entero positivo (numero) y un dígito (entre 0 y 9), 
+y devuelva cuántas veces aparece ese dígito dentro del número.'''
+def contar_digito(numero, digito):
+    if numero < 10 and numero != digito:
+        return 0
+    elif numero < 10 and numero == digito:
+        return 1
+    else:
+        cociente = numero // 10
+        resto = numero % 10
+        return (1 if resto == digito else 0) + contar_digito(cociente, digito)
+
+print(contar_digito(1223, 2))
