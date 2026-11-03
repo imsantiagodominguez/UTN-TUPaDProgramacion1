@@ -21,3 +21,30 @@ def fibonacci(pos: int):
         return fibonacci(pos + 2) - fibonacci(pos + 1)
     else:
         return fibonacci(pos - 1)+fibonacci(pos - 2)
+    
+'''Consigna 3. Se pide crear una función recursiva que calcule la potencia de un número base elevado a
+un exponente entero no negativo, utilizando la fórmula n^m = n * n^(m - 1), con n^0 = 1 como
+caso base. Se pide probar la función en un algoritmo general.'''
+def potencia(base, exp):
+    if exp == 0:
+        return 1
+    else:
+        return base * potencia(base, exp-1)
+    
+'''Consigna 4. Se pide crear una función recursiva en Python que reciba un número entero positivo en
+base decimal y devuelva su representación en binario como una cadena de texto.
+La representación binaria de un número utiliza solamente ceros (0) y unos (1), en base 2.
+Para convertir un número decimal a binario, se puede seguir este procedimiento:
+1. Dividir el número por 2.
+2. Guardar el resto (0 o 1).
+3. Repetir el proceso con el cociente hasta que llegue a 0.
+4. Los restos obtenidos, leídos de abajo hacia arriba, forman el número binario.'''
+def num_bin(num: int):
+    if num == 0:
+        return "0"
+    elif num == 1:
+        return "1"
+    else:
+        cociente = num // 2
+        resto = str(num % 2)
+        return num_bin(cociente) + resto

@@ -2,8 +2,7 @@ print('''¡Bienvenido a mi solución al TP10 - Recursividad!
 Alumno: Santiago Dominguez''')
 print("_"*70)
 
-from def_func import fact
-from def_func import fibonacci
+from def_func import fact, fibonacci, potencia, num_bin
 
 print("(>) Solución Ejer. 1:\n")
 
@@ -37,4 +36,38 @@ while True:
     except ValueError:
         print("(ERROR!) << Debe ingresar un valor numérico entero >>")
     
+print("_"*70)
+
+print("(>) Solución Ejer. 3:\n")
+
+base = float(input(">> Ingrese el número base de su potencia: "))
+while True:
+    try:
+        exponente = int(input(">> Ingrese el exponente no negativo del núm. base: "))
+        if exponente >= 0:
+            break
+        else:
+            print("(ERROR!) << El exponente debe ser un número entero no negativo >>")
+    except ValueError:
+        print("(ERROR!) << El exponente debe ser un número entero no negativo >>")
+
+
+print(potencia(base, exponente))
+
+print("_"*70)
+
+print("(>) Solución Ejer. 4:\n")
+
+while True:
+    try:
+        binario = int(input(">> Ingrese el número a convertir a su representación binaria, debe ser entero y positivo: "))
+        if binario >= 0:
+            break
+        else:
+            print("(ERROR!) << El número a convertir deber ser un número positivo >>")
+    except ValueError:
+        print("(ERROR!) << El número a convertir debe ser un número positivo >>")
+
+print(num_bin(binario))
+
 print("_"*70)
