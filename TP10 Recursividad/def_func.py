@@ -8,3 +8,16 @@ def fact(num: int):
         return
     else:
         return 1 if num == 0 else fact(num - 1) * num
+    
+'''Consigna 2. Se pide crear una función recursiva que calcule el valor de la sucesión de Fibonacci en la
+posición indicada. Posteriormente, se pide mostrar la sucesión completa hasta la posición
+que especifique el usuario.'''
+def fibonacci(pos: int):
+    if pos == 0:
+        return 0
+    elif pos == 1:
+        return 1
+    elif pos < 0:
+        return fibonacci(pos + 2) - fibonacci(pos + 1)
+    else:
+        return fibonacci(pos - 1)+fibonacci(pos - 2)
