@@ -2,7 +2,7 @@ print('''¡Bienvenido a mi solución al TP10 - Recursividad!
 Alumno: Santiago Dominguez''')
 print("_"*70)
 
-from def_func import fact, fibonacci, potencia, num_bin, es_palindromo, suma_digitos, contar_bloques
+from def_func import fact, fibonacci, potencia, num_bin, es_palindromo, suma_digitos, contar_bloques, contar_digito
 
 print("(>) Solución Ejer. 1: Factorial hasta 'x' número entero positivo\n")
 
@@ -120,5 +120,33 @@ while True:
 
 print(f''' >> Siendo "{bloques_base}" el nivel mas bajo de la pirámide:
  >> Se necesitarían {contar_bloques(bloques_base)} bloques para construir toda la pirámide.''')
+
+print("_"*70)
+
+print("(>) Solución Ejer. 8:  Apariciones de un dígito\n")
+
+# Validación para el número a analizar (debe ser entero positivo)
+while True:
+    try:
+        numero = int(input('''>> Ingrese un número entero positivo a analizar: '''))
+        if numero <= 0:
+            print("(ERROR!) << Debe ser un número entero y positivo >>")
+        else:
+            break
+    except ValueError:
+        print("(ERROR!) << Se espera un número entero y positivo >>")
+
+# Validación para el dígito a buscar dentro del número ingresado
+while True:
+    try:
+        digito = int(input(f'''>> Ingrese el dígito que desea buscar (0-9): '''))
+        if digito < 0 or digito >= 10:
+            print("(ERROR!) << Se espera un número entre 0 y 9 >>")
+        else:
+            break
+    except ValueError:
+        print("(ERROR!) << Se espera un número entre 0 y 9 >>")
+
+print(f''' >> En el número "{numero}" aparece el dígito "{digito}" {contar_digito(numero, digito)} veces.''')
 
 print("_"*70)
