@@ -3,6 +3,7 @@ Alumno: Santiago Dominguez''')
 print("_"*70)
 
 from def_func import fact
+from def_func import fibonacci
 
 '''Consigna 1. Se pide crear una función recursiva que calcule el factorial de un número entero no
 negativo y utilizarla para calcular y mostrar en pantalla el factorial de todos los números
@@ -21,6 +22,24 @@ while True:
         else:
             print("(ERROR!) << El número debe ser igual o mayor a 0 para evaluar el rango >>")
     except ValueError:
-        print("(ERROR!) << Debe ingresar un valor numérico entero >>")
+        print("(ERROR!) << Debe ingresar un número entero positivo >>")
         
+print("_"*70)
+'''Consigna 2. Se pide crear una función recursiva que calcule el valor de la sucesión de Fibonacci en la
+posición indicada. Posteriormente, se pide mostrar la sucesión completa hasta la posición
+que especifique el usuario.'''
+print("(>) Solución Ejer. 2:\n")
+
+while True:
+    num_pos = input(">> Ingrese un número entero para calcular el valor de la sucesión de Fibnacci hasta esa posición: ")
+    try:
+        limite = int(num_pos)
+        print(f">> Los valores de la sucesión de Fibonacci hasta el número {num_pos} son:")
+        paso = 1 if limite >= 0 else -1
+        for i in range(0, limite+paso, paso):
+            print(f">> Para Fibonacci: ({i}), el valor de la sucesión es: {fibonacci(i)}")
+        break
+    except ValueError:
+        print("(ERROR!) << Debe ingresar un valor numérico entero >>")
+    
 print("_"*70)
