@@ -64,3 +64,16 @@ def es_palindromo(palabra):
     # Caso recursivo
     else:
         return es_palindromo(palabra[1:-1])
+    
+'''Se pide escribir una función recursiva en Python llamada suma_digitos(n) que reciba un
+número entero positivo y devuelva la suma de todos sus dígitos.
+Restricciones:
+- No se puede convertir el número a cadena de texto.
+- Se deben usar operaciones matemáticas (%, //) y recursión.'''
+def suma_digitos(n):
+    if n < 10:
+        return n
+    else:
+        ultimo_digito = n % 10
+        resto_numero = n // 10
+        return ultimo_digito + suma_digitos(resto_numero)

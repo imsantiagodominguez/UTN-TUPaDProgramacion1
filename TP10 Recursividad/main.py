@@ -2,7 +2,7 @@ print('''¡Bienvenido a mi solución al TP10 - Recursividad!
 Alumno: Santiago Dominguez''')
 print("_"*70)
 
-from def_func import fact, fibonacci, potencia, num_bin, es_palindromo
+from def_func import fact, fibonacci, potencia, num_bin, es_palindromo, suma_digitos
 
 print("(>) Solución Ejer. 1: Factorial hasta 'x' número entero positivo\n")
 
@@ -87,5 +87,21 @@ if soy_palindromo == True:
     print(f''' >> VERDADERO, la palabra "{palabra.title()}" es palíndromo.''')
 else:
     print(f''' >> FALSO, la palabra "{palabra.title()}" no es palíndromo.''')
+
+print("_"*70)
+
+print("(>) Solución Ejer. 6: Suma de dígitos\n")
+
+while True:
+    try:
+        num = int(input('''>> Ingrese el número a sumar todos sus dígitos (Ejemplo: 1234 = 10): '''))
+        if num < 0:
+            print("(ERROR!) << Debe ser un número entero y positivo (num > 0) >>")
+        else:
+            break
+    except ValueError:
+        print("(ERROR!) << Se espera un número entero y positivo (num > 0) >>")
+
+print(f''' >> Siendo "{num}", la suma de sus dígitos es:''', suma_digitos(num))
 
 print("_"*70)
