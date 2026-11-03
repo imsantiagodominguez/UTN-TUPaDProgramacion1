@@ -77,3 +77,21 @@ def suma_digitos(n):
         ultimo_digito = n % 10
         resto_numero = n // 10
         return ultimo_digito + suma_digitos(resto_numero)
+
+'''Consigna 6. Un niño está construyendo una pirámide con bloques. En el nivel más bajo coloca n
+bloques, en el siguiente nivel uno menos (n - 1), y así sucesivamente hasta llegar al último
+nivel con un solo bloque.
+Se pide escribir una función recursiva contar_bloques(n) que reciba el número de bloques
+en el nivel más bajo y devuelva el total de bloques que necesita para construir toda la
+pirámide.
+Ejemplos:
+contar_bloques(1) → 1 (1)
+contar_bloques(2) → 3 (2 + 1)
+contar_bloques(4) → 10 (4 + 3 + 2 + 1)
+'''
+def contar_bloques(n):
+    if n == 0:
+        return 0
+    else:
+        return n + contar_bloques(n-1)
+

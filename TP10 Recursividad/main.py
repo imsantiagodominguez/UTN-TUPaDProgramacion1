@@ -2,7 +2,7 @@ print('''¡Bienvenido a mi solución al TP10 - Recursividad!
 Alumno: Santiago Dominguez''')
 print("_"*70)
 
-from def_func import fact, fibonacci, potencia, num_bin, es_palindromo, suma_digitos
+from def_func import fact, fibonacci, potencia, num_bin, es_palindromo, suma_digitos, contar_bloques
 
 print("(>) Solución Ejer. 1: Factorial hasta 'x' número entero positivo\n")
 
@@ -95,13 +95,30 @@ print("(>) Solución Ejer. 6: Suma de dígitos\n")
 while True:
     try:
         num = int(input('''>> Ingrese el número a sumar todos sus dígitos (Ejemplo: 1234 = 10): '''))
-        if num < 0:
-            print("(ERROR!) << Debe ser un número entero y positivo (num > 0) >>")
+        if num <= 0:
+            print("(ERROR!) << Debe ser un número entero y positivo >>")
         else:
             break
     except ValueError:
-        print("(ERROR!) << Se espera un número entero y positivo (num > 0) >>")
+        print("(ERROR!) << Se espera un número entero y positivo >>")
 
 print(f''' >> Siendo "{num}", la suma de sus dígitos es:''', suma_digitos(num))
+
+print("_"*70)
+
+print("(>) Solución Ejer. 7: Pirámide de bloques\n")
+
+while True:
+    try:
+        bloques_base = int(input('''>> Ingrese, en número entero positivo, los bloques del nivel más bajo de su pirámide: '''))
+        if bloques_base <= 0:
+            print("(ERROR!) << Debe ser un número entero y positivo >>")
+        else:
+            break
+    except ValueError:
+        print("(ERROR!) << Se espera un número entero y positivo >>")
+
+print(f''' >> Siendo "{bloques_base}" el nivel mas bajo de la pirámide:
+ >> Se necesitarían {contar_bloques(bloques_base)} bloques para construir toda la pirámide.''')
 
 print("_"*70)
