@@ -5,9 +5,6 @@ print("_"*70)
 from def_func import fact
 from def_func import fibonacci
 
-'''Consigna 1. Se pide crear una función recursiva que calcule el factorial de un número entero no
-negativo y utilizarla para calcular y mostrar en pantalla el factorial de todos los números
-enteros entre 1 y el número que indique el usuario.'''
 print("(>) Solución Ejer. 1:\n")
 
 while True:
@@ -25,9 +22,7 @@ while True:
         print("(ERROR!) << Debe ingresar un número entero positivo >>")
         
 print("_"*70)
-'''Consigna 2. Se pide crear una función recursiva que calcule el valor de la sucesión de Fibonacci en la
-posición indicada. Posteriormente, se pide mostrar la sucesión completa hasta la posición
-que especifique el usuario.'''
+
 print("(>) Solución Ejer. 2:\n")
 
 while True:
