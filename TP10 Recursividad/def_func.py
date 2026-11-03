@@ -107,5 +107,3 @@ def contar_digito(numero, digito):
         cociente = numero // 10
         resto = numero % 10
         return (1 if resto == digito else 0) + contar_digito(cociente, digito)
-
-print(contar_digito(1223, 2))
